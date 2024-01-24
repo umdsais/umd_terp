@@ -108,6 +108,12 @@ function umd_terp_form_system_theme_settings_alter(&$form, FormStateInterface $f
     '#default_value' => theme_get_setting('umd_terp_instagram_link'),
     '#description' => t('Add the URL to your instagram profile.'),
   ];
+  $form['umd_terp_social_settings']['umd_terp_linkedin_link'] = [
+    '#type' => 'textfield',
+    '#title' => t('LinkedIn link'),
+    '#default_value' => theme_get_setting('umd_terp_linkedin_link'),
+    '#description' => t('Add the URL to your linkedin profile.'),
+  ];
 
   // Articles.
   $form['articles'] = [
