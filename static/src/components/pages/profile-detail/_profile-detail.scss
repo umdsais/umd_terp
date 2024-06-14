@@ -10,6 +10,9 @@
     &:hover {
       color: $dark-red;
     }
+    &:not([class]) {
+      color: $red-2;
+    }
   }
   li {
     &:not(:last-child) {
