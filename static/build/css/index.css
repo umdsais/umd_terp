@@ -15772,9 +15772,9 @@ body .umdheader-wrap {
 .card {
   border: none;
   position: relative;
-  transition: .25s .25s box-shadow ease-in-out; }
+  transition: 0.25s 0.25s box-shadow ease-in-out; }
   .card[role="link"] {
-    transition: .25s border ease-in-out, .25s box-shadow ease-in-out, .25s transform ease-in-out; }
+    transition: 0.25s border ease-in-out, 0.25s box-shadow ease-in-out, 0.25s transform ease-in-out; }
     .card[role="link"]:hover, .card[role="link"]:focus {
       box-shadow: 4px 4px 11px 0 rgba(0, 0, 0, 0.19);
       cursor: pointer;
@@ -15821,7 +15821,7 @@ body .umdheader-wrap {
 .card-body {
   background-color: #FFFFFF;
   padding: 0.75rem 1.5rem 1.25rem;
-  transition: .25s background-color ease-in-out; }
+  transition: 0.25s background-color ease-in-out; }
 
 .card-title {
   font-family: "Source Sans Pro", sans-serif;
@@ -15832,7 +15832,7 @@ body .umdheader-wrap {
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
   position: relative;
-  transition: .25s color ease-in-out; }
+  transition: 0.25s color ease-in-out; }
   .card-title:after {
     content: "";
     background-color: #D8D8D8;
@@ -15849,13 +15849,13 @@ body .umdheader-wrap {
 .card-text {
   color: #4A4A4A;
   font-size: 1.0625rem;
-  transition: .25s color ease-in-out; }
+  transition: 0.25s color ease-in-out; }
   .card-text:not(:last-child) {
     margin-bottom: 1.25rem; }
 
 .card-cta.fancy-link {
   font-weight: 400;
-  font-size: 1.0625rem; }
+  font-size: 1.1875rem; }
   .card-cta.fancy-link:after {
     bottom: 0.25rem; }
 
