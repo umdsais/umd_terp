@@ -55,6 +55,15 @@ a {
   }
 }
 
+a[href^="mailto:"] {
+  .editor-content &:not([class]),
+  .card-text &:not([class]),
+  .blockquote &:not([class]),
+  .table td &:not([class]) {
+    text-decoration: underline;
+  }
+}
+
 ul,
 ol {
   list-style: none;
