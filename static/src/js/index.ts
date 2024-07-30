@@ -21,7 +21,7 @@ import Tablesaw from "../components/table/table";
 import initSiteHeader from "../components/site-header/site-header";
 import initBackToTop from "../components/back-to-top/back-to-top";
 import initHomeHero from "../components/home-hero/home-hero";
-
+import umdGlobalHeaderInit from "../components/umd-global-header/umd-global-header";
 /**
  * Init
  */
@@ -37,3 +37,7 @@ initSubnav();
 initBackToTop();
 initHomeHero();
 Tablesaw.init();
+
+window.onload = function() {
+  umdGlobalHeaderInit();
+};
