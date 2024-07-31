@@ -55,6 +55,15 @@ a {
   }
 }
 
+a[href^="mailto:"] {
+  .editor-content &:not([class]),
+  .card-text &:not([class]),
+  .blockquote &:not([class]),
+  .table td &:not([class]) {
+    text-decoration: underline;
+  }
+}
+
 ul,
 ol {
   list-style: none;
@@ -69,7 +78,6 @@ ol {
   .card-text & {
     margin: $list-margin;
     padding: 0 0 0 1rem;
-    ;
   }
 
   li {
@@ -88,14 +96,12 @@ ol {
 
   ul,
   ol {
-
     .editor-content &,
     .card-text & {
       margin: 0;
     }
 
     li {
-
       .editor-content &,
       .card-text & {
         &:first-child {
@@ -107,10 +113,9 @@ ol {
 }
 
 ul {
-
   .editor-content &,
   .card-text & {
-    >li {
+    > li {
       &:before {
         content: "";
         display: inline-block;
@@ -124,8 +129,8 @@ ul {
         transform: translateY(-50%);
       }
 
-      >ul {
-        >li {
+      > ul {
+        > li {
           &:before {
             background-color: $red;
             border: none;
@@ -133,8 +138,8 @@ ul {
             width: rem(7);
           }
 
-          >ul {
-            >li {
+          > ul {
+            > li {
               &:before {
                 content: "";
                 background-color: transparent;
@@ -153,12 +158,11 @@ ul {
 }
 
 ol {
-
   .editor-content &,
   .card-text & {
     counter-reset: list;
 
-    >li {
+    > li {
       counter-increment: list;
 
       &:before {
@@ -167,7 +171,7 @@ ol {
         font-weight: 700;
       }
 
-      >p {
+      > p {
         &:first-child {
           display: inline; // Prevents number from displaying above text
         }
@@ -177,14 +181,14 @@ ol {
         }
       }
 
-      >ol {
-        >li {
+      > ol {
+        > li {
           &:before {
             content: counter(list, lower-alpha) ".\00a0\00a0";
           }
 
-          >ol {
-            >li {
+          > ol {
+            > li {
               &:before {
                 content: counter(list, lower-roman) ".\00a0\00a0";
               }
@@ -330,6 +334,6 @@ blockquote {
     top: 50%;
     left: 0;
     transform: translate3d(0, -50%, 0) scale(-1);
-    transition: .25s transform ease-in-out;
+    transition: 0.25s transform ease-in-out;
   }
 }

@@ -39,7 +39,7 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
+<div{{attributes.addClass(classes)}}>
   {{ title_prefix }}
   {% if title %}
     {{ title }}
@@ -50,7 +50,7 @@
       {{ exposed }}
     </div>
   {% endif %}
-  <div role="region" aria-live="polite">
+  <div role="region" aria-live="polite" aria-label="Content Section">
     {% if header %}
       <div class="view-header pb-3">
         {{ header }}
@@ -73,7 +73,7 @@
       {{ rows }}
     </div>
   {% endif %}
-  
+
   {% if pager %}
     {{ pager }}
   {% endif %}

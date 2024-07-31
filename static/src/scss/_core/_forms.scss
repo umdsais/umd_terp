@@ -95,7 +95,7 @@
 
     .form-item label {
       color: #000;
-      font-size: .8rem;
+      font-size: 0.8rem;
       line-height: 1;
     }
 
@@ -103,9 +103,19 @@
       margin-bottom: 0px;
 
       .btn-secondary {
-        border: 1px solid $gray-300
+        border: 1px solid $gray-300;
       }
     }
-
   }
+}
+
+ul.select2-selection__rendered {
+  &:empty {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  white-space: initial;
 }

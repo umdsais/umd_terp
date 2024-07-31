@@ -255,17 +255,17 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-1da59f27e62b9d0fdb5d92dd43d58e11">_card.scss</option>
+                <option value="file-eb594e2319e45360758037d949a72e9a">_card.scss</option>
                 
-                <option value="file-23671d2190af3e2e49478e8ac7f41fc4">_variables.scss</option>
+                <option value="file-327b9f32cf1468ae47d3c76c6e300021">_variables.scss</option>
                 
-                <option value="file-8ec33d578a55023f1707927f1b958f20">card.ts</option>
+                <option value="file-19bfa3300ada65d94844e6097d3751c4">card.ts</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-1da59f27e62b9d0fdb5d92dd43d58e11" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-eb594e2319e45360758037d949a72e9a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -278,12 +278,11 @@
 <span class="hljs-selector-class">.card</span> {
   <span class="hljs-attribute">border</span>: none;
   <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">transition</span>: .<span class="hljs-number">25s</span> .<span class="hljs-number">25s</span> box-shadow ease-in-out;
+  <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.25s</span> <span class="hljs-number">0.25s</span> box-shadow ease-in-out;
 
   &amp;<span class="hljs-selector-attr">[role=&quot;link&quot;]</span> {
-    <span class="hljs-attribute">transition</span>: .<span class="hljs-number">25s</span> border ease-in-out,
-      .<span class="hljs-number">25s</span> box-shadow ease-in-out,
-      .<span class="hljs-number">25s</span> transform ease-in-out;
+    <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.25s</span> border ease-in-out, <span class="hljs-number">0.25s</span> box-shadow ease-in-out,
+      <span class="hljs-number">0.25s</span> transform ease-in-out;
 
     &amp;<span class="hljs-selector-pseudo">:hover</span>,
     &amp;<span class="hljs-selector-pseudo">:focus</span> {
@@ -340,7 +339,7 @@
 }
 
 <span class="hljs-selector-class">.card-img-text</span> {
-  <span class="hljs-attribute">background-color</span>: rgba(<span class="hljs-number">#323232</span>, .<span class="hljs-number">75</span>);
+  <span class="hljs-attribute">background-color</span>: rgba(<span class="hljs-number">#323232</span>, <span class="hljs-number">0.75</span>);
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
   <span class="hljs-attribute">font-size</span>: rem(<span class="hljs-number">16</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
@@ -355,19 +354,19 @@
 <span class="hljs-selector-class">.card-body</span> {
   <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$white</span>;
   <span class="hljs-attribute">padding</span>: rem(<span class="hljs-number">12</span>) rem(<span class="hljs-number">24</span>) rem(<span class="hljs-number">20</span>);
-  <span class="hljs-attribute">transition</span>: .<span class="hljs-number">25s</span> background-color ease-in-out;
+  <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.25s</span> background-color ease-in-out;
 }
 
 <span class="hljs-selector-class">.card-title</span> {
   <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$font-family-sans-serif</span>;
   <span class="hljs-attribute">font-size</span>: rem(<span class="hljs-number">16</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;
-  <span class="hljs-attribute">letter-spacing</span>: rem(.<span class="hljs-number">02</span>);
+  <span class="hljs-attribute">letter-spacing</span>: rem(<span class="hljs-number">0.02</span>);
   <span class="hljs-attribute">line-height</span>: (<span class="hljs-number">18.4</span> / <span class="hljs-number">16</span>);
   <span class="hljs-attribute">margin-bottom</span>: rem(<span class="hljs-number">20</span>);
   <span class="hljs-attribute">padding-bottom</span>: rem(<span class="hljs-number">12</span>);
   <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">transition</span>: .<span class="hljs-number">25s</span> color ease-in-out;
+  <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.25s</span> color ease-in-out;
 
   &amp;<span class="hljs-selector-pseudo">:after</span> {
     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;&quot;</span>;
@@ -389,7 +388,7 @@
 <span class="hljs-selector-class">.card-text</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$gray-700</span>;
   <span class="hljs-attribute">font-size</span>: rem(<span class="hljs-number">17</span>);
-  <span class="hljs-attribute">transition</span>: .<span class="hljs-number">25s</span> color ease-in-out;
+  <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.25s</span> color ease-in-out;
 
   &amp;<span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-pseudo">:last-child</span>) {
     <span class="hljs-attribute">margin-bottom</span>: rem(<span class="hljs-number">20</span>);
@@ -399,7 +398,7 @@
 <span class="hljs-selector-class">.card-cta</span> {
   &amp;<span class="hljs-selector-class">.fancy-link</span> {
     <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;
-    <span class="hljs-attribute">font-size</span>: rem(<span class="hljs-number">17</span>);
+    <span class="hljs-attribute">font-size</span>: rem(<span class="hljs-number">19</span>);
 
     &amp;<span class="hljs-selector-pseudo">:after</span> {
       <span class="hljs-attribute">bottom</span>: rem(<span class="hljs-number">4</span>);
@@ -427,7 +426,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-23671d2190af3e2e49478e8ac7f41fc4" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-327b9f32cf1468ae47d3c76c6e300021" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -456,7 +455,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-8ec33d578a55023f1707927f1b958f20" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-19bfa3300ada65d94844e6097d3751c4" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -2549,8 +2548,8 @@ export default function initCards() {
                     <dt class="Tree-asideTerm">Built on:</dt>
                     <dd class="Tree-asideDescription">
                         
-                            <time datetime="2024-01-24T19:57:47.592Z">
-                                1/24/2024
+                            <time datetime="2024-07-30T15:42:56.005Z">
+                                7/30/2024
                             </time>
                         
                     </dd>

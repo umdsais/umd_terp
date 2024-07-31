@@ -14,14 +14,14 @@ img {
 
 a {
   color: $link-color;
-  transition: .25s color ease-in-out;
+  transition: 0.25s color ease-in-out;
   &:hover {
     color: $link-hover-color;
   }
 }
 
 hr {
-  border-bottom: 1px solid #EDEDED;
+  border-bottom: 1px solid #ededed;
   border-top: 0;
   margin: rem(16) 0 rem(8);
 }
