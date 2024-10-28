@@ -24,6 +24,12 @@
   }
 }
 
+.lightbox:has(.carousel-image) {
+  @media only screen and (max-height: 800px) and (min-width: 800px) {
+    padding-block: rem(30);
+  }
+}
+
 .carousel-image {
   position: relative;
   .lightbox-carousel & {
@@ -33,6 +39,12 @@
     }
     &:before {
       padding-bottom: 50%;
+      @media only screen and (max-height: 900px) and (min-width: 800px) {
+        padding-bottom: 40%;
+      }
+      @media only screen and (max-height: 700px) and (min-width: 800px) {
+        padding-bottom: 30%;
+      }
     }
   }
   &:before {
@@ -70,7 +82,7 @@
 
 .carousel-caption {
   .carousel-bg & {
-    background-color: rgba($gray-800, .85);
+    background-color: rgba($gray-800, 0.85);
     opacity: 0;
     overflow: hidden;
     position: absolute;
@@ -78,8 +90,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    transition: .25s opacity ease-in-out,
-      .25s visibility ease-in-out;
+    transition: 0.25s opacity ease-in-out, 0.25s visibility ease-in-out;
     visibility: hidden;
   }
 }
@@ -91,7 +102,7 @@
   text-transform: uppercase;
   .carousel-bg & {
     font-size: rem(16);
-    letter-spacing: rem(.35);
+    letter-spacing: rem(0.35);
     line-height: (18 / 16);
     position: absolute;
     top: 50%;
@@ -101,7 +112,7 @@
   .lightbox-carousel & {
     font-size: rem(20);
     line-height: (22 / 20);
-    letter-spacing: rem(.45);
+    letter-spacing: rem(0.45);
     margin-bottom: rem(8);
     text-align: left;
   }

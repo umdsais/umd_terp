@@ -41,9 +41,6 @@
       display: none;
     }
   }
-  a:not([class]) {
-    color: $dark-red;
-  }
   p {
     color: $gray-700;
     font-size: rem(32);

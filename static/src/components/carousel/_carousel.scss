@@ -50,10 +50,10 @@
   height: rem(50);
   width: rem(50);
   position: relative;
-  transition: .2s background-color ease-in-out;
+  transition: 0.2s background-color ease-in-out;
   z-index: 10;
   .carousel-bg & {
-    box-shadow: 0 0 10px rgba(#000, .5);
+    box-shadow: 0 0 10px rgba(#000, 0.5);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -61,10 +61,7 @@
   .lightbox-carousel & {
     @include media-breakpoint-up(800) {
       position: absolute;
-      top: calc(25vw - #{rem(45)});
-    }
-    @include media-breakpoint-up(1440) {
-      top: calc(#{rem(315)});
+      top: 50%;
     }
   }
   .icon {

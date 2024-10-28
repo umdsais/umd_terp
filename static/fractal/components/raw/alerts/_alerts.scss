@@ -27,10 +27,6 @@
     a:not(.btn) {
         color: inherit;
         text-decoration: underline;
-        &:hover,
-        &:focus {
-            text-decoration: none;
-        }
     }
     &:not(:first-of-type) {
         border-top: rem(1) solid $black;

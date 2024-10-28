@@ -6,7 +6,7 @@ export class Subnav {
   constructor(element: HTMLElement) {
     if (element) {
       this.element = element;
-      this.links = element.querySelector('a[aria-current="page"]').nextElementSibling ? element.querySelector('a[aria-current="page"]').nextElementSibling.querySelectorAll('a') : null;
+      this.links = element.querySelectorAll("a");
       this.init();
     }
   }
@@ -16,11 +16,6 @@ export class Subnav {
   }
 
   protected createDropdown() {
-
-    if (this.links == null) {
-      return;
-    }
-
     const dropdown = document.createElement("SELECT") as HTMLSelectElement;
     const placeholderOption = document.createElement("option") as HTMLOptionElement;
 

@@ -3,11 +3,12 @@
 .card {
   border: none;
   position: relative;
-  transition: 0.25s 0.25s box-shadow ease-in-out;
+  transition: .25s .25s box-shadow ease-in-out;
 
   &[role="link"] {
-    transition: 0.25s border ease-in-out, 0.25s box-shadow ease-in-out,
-      0.25s transform ease-in-out;
+    transition: .25s border ease-in-out,
+      .25s box-shadow ease-in-out,
+      .25s transform ease-in-out;
 
     &:hover,
     &:focus {
@@ -64,7 +65,7 @@
 }
 
 .card-img-text {
-  background-color: rgba(#323232, 0.75);
+  background-color: rgba(#323232, .75);
   color: $white;
   font-size: rem(16);
   font-weight: 600;
@@ -79,19 +80,19 @@
 .card-body {
   background-color: $white;
   padding: rem(12) rem(24) rem(20);
-  transition: 0.25s background-color ease-in-out;
+  transition: .25s background-color ease-in-out;
 }
 
 .card-title {
   font-family: $font-family-sans-serif;
   font-size: rem(16);
   font-weight: 700;
-  letter-spacing: rem(0.02);
+  letter-spacing: rem(.02);
   line-height: (18.4 / 16);
   margin-bottom: rem(20);
   padding-bottom: rem(12);
   position: relative;
-  transition: 0.25s color ease-in-out;
+  transition: .25s color ease-in-out;
 
   &:after {
     content: "";
@@ -113,7 +114,7 @@
 .card-text {
   color: $gray-700;
   font-size: rem(17);
-  transition: 0.25s color ease-in-out;
+  transition: .25s color ease-in-out;
 
   &:not(:last-child) {
     margin-bottom: rem(20);
@@ -123,7 +124,7 @@
 .card-cta {
   &.fancy-link {
     font-weight: 400;
-    font-size: rem(19);
+    font-size: rem(17);
 
     &:after {
       bottom: rem(4);
