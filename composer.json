@@ -22,7 +22,7 @@
       "drupal/twig_tweak": "*",
       "drupal/twig_field_value": "*",
       "umd_digital/umd_terp_base": "*",
-      "umd_digital/umd_schoolwide_header": "*"
+      "umd_digital/umd_schoolwide_header": "8.1.8"
     },
     "support": {
       "issues": "https://github.com/umdsais/umd_terp/issues",
