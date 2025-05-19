@@ -1,58 +1,75 @@
 {#
 /**
 * @file
-* Displays global footer.
+* Displays global UMD footer.
 *
 */
 #}
 
-<footer class="site-footer" aria-label="Main">
-	<div class="site-footer-main">
-		<div class="max-bound">
-			<nav class="site-footer-nav" aria-label="Footer">
-				{{ drupal_menu('footer') }}
-			</nav>
-			<div class="site-footer-about">
-				<div class="site-footer-logo">
-					{% if umd_terp_footer_logo_svg %}
-						{{ umd_terp_footer_logo_svg|raw }}
-					{% else %}
-						<img src="{{ footer_logo_path }}" alt="{{ site_name }} footer logo">
-					{% endif %}
-				</div>
-				<div class="site-footer-address">
-					<strong>{{ site_name }}</strong><br>
-					{% if umd_terp_address %}
-						<span>{{ umd_terp_address }}</span><br>
-					{% endif %}
-					{% if umd_terp_phone %}
-						<a aria-label="{{ umd_terp_phone|preg_replace('/[^0-9]/', '') }}" href="tel:+{{ umd_terp_phone|preg_replace('/[^0-9]/', '') }}">{{ umd_terp_phone }}</a>
-						{% if umd_terp_phone_secondary %}
-							<span aria-hidden="true">&nbsp;/&nbsp;</span>
-							<a aria-label="{{ umd_terp_phone_secondary|preg_replace('/[^0-9]/', '') }}" href="tel:+{{ umd_terp_phone_secondary|preg_replace('/[^0-9]/', '') }}">{{ umd_terp_phone_secondary }}</a>
-						{% endif %}
-					{% endif %}
-					{% if umd_terp_email %}
-						{% if umd_terp_phone %}
-							<span aria-hidden="true">&nbsp;·&nbsp;</span>
-						{% endif %}
-						<a href="mailto:{{ umd_terp_email }}">{{ umd_terp_email }}</a>
-						{% if umd_terp_email_secondary %}
-							<span aria-hidden="true">&nbsp;/&nbsp;</span>
-							<a href="mailto:{{ umd_terp_email_secondary }}">{{ umd_terp_email_secondary }}</a>
-						{% endif %}
-					{% endif %}
-				</div>
-				<div class="site-footer-social">
-					{% include directory ~ '/templates/partials/social-links.html.twig' %}
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="site-footer-legal">
-		<div class="max-bound">
-			{{ drupal_menu('global') }}
-		</div>
-	</div>
-</footer>
-<a href="#" class="back-to-top">Back to Top</a>
+{# Begin UMD Brand Footer #}
+  <umd-element-footer theme="dark" style="display: block;">
+    <div slot="contact-headline">
+      {{ site_name }}
+    </div>
+	{% if umd_terp_address %}
+		<address slot="contact-address">
+			<span>{{ umd_terp_address }}</span>
+		</address>
+	{% endif %}
+    <div slot="contact-links">
+	  	{% if umd_terp_email %}
+			<a href="mailto:{{ umd_terp_email }}">{{ umd_terp_email }}</a>
+		{% endif %}
+	  	{% if umd_terp_phone %}
+			<a href="tel:+{{ umd_terp_phone|preg_replace('/[^0-9]/', '') }}">{{ umd_terp_phone }}</a>
+		{% endif %}
+    </div>
+
+    <div slot="social-links">
+		{% if umd_terp_youtube_link %}
+			<a
+			href="{{ umd_terp_youtube_link }}"
+			rel="noopener noreferrer"
+			target="_blank"
+			aria-label="Visit our Youtube"
+		></a>
+		{% endif %}
+
+		{% if umd_terp_facebook_link %}
+			<a
+			href="{{ umd_terp_facebook_link }}"
+			rel="noopener noreferrer"
+			target="_blank"
+			aria-label="Visit our Facebook"
+		></a>
+		{% endif %}
+
+		{% if umd_terp_twitter_link %}
+			<a
+			href="{{ umd_terp_twitter_link }}"
+			rel="noopener noreferrer"
+			target="_blank"
+			aria-label="Visit is on X"
+		></a>
+		{% endif %}
+	
+		{% if umd_terp_instagram_link %}
+			<a
+			href="{{ umd_terp_instagram_link }}"
+			rel="noopener noreferrer"
+			target="_blank"
+			aria-label="Visit our Instagram"
+		></a>
+		{% endif %}
+	
+		{% if umd_terp_linkedin_link %}
+			<a
+			href="{{ umd_terp_linkedin_link }}"
+			rel="noopener noreferrer"
+			target="_blank"
+			aria-label="Visit our LinkedIn"
+		></a>
+		{% endif %}
+    </div>
+  </umd-element-footer>
+{# End Footer #}

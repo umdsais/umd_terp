@@ -4,12 +4,14 @@
 <main id="main-content">
 	{% block hero %}
 		{% if hero_image %}
-				<div class="hero">
-					<div class="hero-media">
-						<img src="{{ hero_image }}" alt="{{ hero_alt }}">
-					</div>
-				</div>
-			</div>
+			<umd-element-hero type="default-interior">
+				<img slot="image" src="{{ hero_image }}" alt="{{ hero_alt }}"/>
+				<h1 slot="headline">UMD Login</h1>
+			</umd-element-hero>
+		{% else %}
+			<umd-element-hero-minimal data-theme="light">
+				<h1 slot="headline">UMD Login</h1>
+			</umd-element-hero-minimal>
 		{% endif %}
 	{% endblock %}
 	{% block main %}
@@ -18,7 +20,7 @@
 			{{ page.highlighted }}
 			<div class="row justify-content-center login">
 				<div class="col-800-5 login__cas">
-					<h1 class="h3">UMD Login</h1>
+					<h2 class="h3">UMD Login</h2>
 					<p>University of Maryland staff and faculty accounts can access site via the Division of IT Central Authentication Service (CAS).</p>
 					<a class="button btn btn-primary" href="/caslogin">Log In with CAS</a>
 				</div>

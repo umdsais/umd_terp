@@ -43,19 +43,17 @@ function umd_terp_preprocess_page(&$variables) {
     if ($node->hasField('field_umdt_ct_hero_image') && $node->get('field_umdt_ct_hero_image')->entity) {
       $hero_uri = $node->get('field_umdt_ct_hero_image')->entity->get('field_media_image')->entity->getFileUri();
       $hero_alt = $node->get('field_umdt_ct_hero_image')->entity->get('field_media_image')->alt;
-    }
-    if (!empty($hero_uri)) {
-      $variables['hero_image'] = ImageStyle::load('optimized')->buildUrl($hero_uri);
-      $variables['hero_alt'] = $hero_alt;
-    }
 
+      if (!empty($hero_uri) && !empty($hero_alt)) {
+        $variables['hero_image'] = ImageStyle::load('optimized')->buildUrl($hero_uri);
+        $variables['hero_alt'] = $hero_alt;
+      }
+
+    }
+    
     switch ($node->getType()) {
       case 'umd_terp_basic_page':
         $variables['hide_sidebar'] = $node->get('field_umdt_ct_hide_sidebar')->value;
-        $variables['right_sidebar'] = FALSE;
-        if (isset($variables['umd_terp_sidebar_right']) && $variables['umd_terp_sidebar_right'] == TRUE) {
-          $variables['right_sidebar'] = TRUE;
-        }
         break;
     }
   }
@@ -66,7 +64,6 @@ function umd_terp_preprocess_page(&$variables) {
  * Implements hook_preprocess_breadcrumb() for node.html.twig.
  */
 function umd_terp_preprocess_breadcrumb(&$variables) {
-  $request = \Drupal::request();
   $route_match = \Drupal::routeMatch();
   if (($node = $route_match->getParameter('node')) && $variables['breadcrumb']) {
     if (is_numeric($node)) {

@@ -5,21 +5,27 @@
  */
 #}
 
-<div class="profile-card card">
-  <div class="card-img card-img-top">
-    {% set photo = assets_path ~ '/img/Profiles_Photo_Placeholder.svg' %}
-    {% if content.field_umdt_ct_person_photo|field_value %}
-      {% set photo = file_url(content.field_umdt_ct_person_photo|field_target_entity.uri.value | image_style('optimized')) %}
-    {% endif %}
-    <img src="{{ photo }}" alt="Portrait of {{ node.title.value }}">
-  </div>
-  <div class="card-body">
-    <h2 class="card-title">{{ node.title.value }}</h2>
-    {% if content.field_umdt_ct_person_title|field_value %}
-      <div class="profile-card-title">{{ content.field_umdt_ct_person_title|field_value }}</div>
-    {% endif %}
-    <div>
-      <a href="{{ link }}" class="card-cta">View Profile<span class="sr-only"> for {{ node.title.value }}</span></a>
-    </div>
-  </div>
-</div>
+<umd-element-person class="umd-shell-person-grid-helper" data-theme="light" display="block">
+
+	{% set photo = assets_path ~ '/img/Profiles_Photo_Placeholder.svg' %}
+	{% if content.field_umdt_ct_person_photo|field_value %}
+		{% set photo = file_url(content.field_umdt_ct_person_photo|field_target_entity.uri.value | image_style('optimized')) %}
+	{% endif %}
+	<img slot="image" src="{{ photo }}" alt="Portrait of {{ node.title.value }}"/>
+  
+	<p slot="name">{{ node.title.value }}</p>
+
+	{% if content.field_umdt_ct_person_title|field_value %}
+		<p slot="job-title">{{ content.field_umdt_ct_person_title|field_value }}</p>
+	{% endif %}
+
+	<p slot="actions">
+		<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="light">
+			<a href="{{ link }}" target="_self">
+				View Profile<span class="sr-only">
+					for
+					{{ node.title.value }}</span>
+			</a>
+		</umd-element-call-to-action>
+	</p>
+</umd-element-person>

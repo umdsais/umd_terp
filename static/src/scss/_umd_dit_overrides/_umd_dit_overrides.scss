@@ -1,0 +1,87 @@
+// Drupal Admin
+#toolbar-administration {
+  position: relative;
+  z-index: 100000;
+}
+
+// force line height for paragraph tags
+p {
+  line-height: 1.66667;
+}
+
+// UMD Red Global Header - ensure search dropdown does not overlap umd header below
+umd-element-navigation-utility {
+  position: relative;
+  z-index: 10000;
+}
+
+// UMD Header - Fade in until loaded (defined)
+umd-element-navigation-header:not(:defined) {
+  opacity: 0;
+}
+
+// Site Header
+umd-element-navigation-header {
+  padding-inline: rem(24);
+  @include media-breakpoint-up(800) {
+    padding-inline: rem(36);
+  }
+}
+
+umd-element-breadcrumb {
+  margin-bottom: rem(20);
+  display: block;
+}
+
+// Button & Link Sets
+.section-ut_button_set,
+.page-section-ut_button_set,
+.section-ut_link_set,
+.page-section-ut_link_set {
+  div:has(> umd-element-call-to-action) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(20);
+  }
+}
+
+// Carousel
+.section-ut_carousel {
+  .carousel-bg {
+    padding: rem(30);
+    &.carousel-bg-dark {
+      background-color: $black;
+    }
+  }
+}
+
+// Person Feed
+@media (max-width: 999.98px) {
+  .col-600-6:has(umd-element-person) {
+    margin-bottom: 2rem;
+  }
+}
+
+// Events
+@media (max-width: 799.98px) {
+  .page-content .section.section-ut_events {
+    margin-inline: 0;
+  }
+}
+
+// Pathway Element
+.outer-pad:has(umd-element-pathway) {
+  padding: 0;
+}
+
+// Rich text
+.umd-rich-text p {
+  max-width: none !important;
+}
+
+// Force cards in feed to have margin botton
+.feed li:has(umd-element-card) {
+  &:not(:last-child) {
+    margin-bottom: rem(25);
+  }
+}

@@ -1,31 +1,45 @@
 {% extends "page.html.twig" %}
 
 {% block hero %}
-<div class="article-hero article-hero__event">
-    <div class="container article-hero-content">
-      <div class="row justify-content-center">
-        <div class="col-800-10">
-          {% if node.field_umdt_ct_event_start_date.value ==  node.field_umdt_ct_event_end_date.value %}
-            <span class="label">{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }}</span>
-          {% else %}
-            <span class="label">{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }} - {{ node.field_umdt_ct_event_end_date.value|date('F j, Y') }}</span>
-          {% endif %}
-          <h1>{{ node.title.value }}</h1>
-          {% if node.field_umdt_ct_event_time.value %}
-            <span class="label">{{ node.field_umdt_ct_event_time.value }}</span>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </div>
+
+	<umd-element-hero type="default-interior">
+
+		{% if node.field_umdt_ct_event_start_date.value == node.field_umdt_ct_event_end_date.value %}
+			<div slot="eyebrow">{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }}</div>
+		{% else %}
+			<div slot="eyebrow">{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }}
+				-
+				{{ node.field_umdt_ct_event_end_date.value|date('F j, Y') }}</div>
+		{% endif %}
+
+		<h1 slot="headline">{{ node.title.value }}</h1>
+
+		{% if node.field_umdt_ct_event_time.value %}
+			<div slot="text">
+				<p>
+					{% if node.field_umdt_ct_event_start_date.value == node.field_umdt_ct_event_end_date.value %}
+						{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }}
+					{% else %}
+						{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }}
+						-
+						{{ node.field_umdt_ct_event_end_date.value|date('F j, Y') }}
+					{% endif %}
+					|
+					{{ node.field_umdt_ct_event_time.value }}
+				</p>
+			</div>
+		{% endif %}
+
+	</umd-element-hero>
+
 {% endblock %}
 
 {% block main %}
 	<div class="container page-content">
 		<div class="row justify-content-center">
 			<div class="col-800-10">
-        {{ page.help }}
-        {{ page.highlighted }}
+				{{ page.help }}
+				{{ page.highlighted }}
 				{{ page.breadcrumbs }}
 				{{ page.content }}
 			</div>

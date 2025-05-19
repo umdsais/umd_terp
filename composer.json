@@ -1,20 +1,22 @@
 {
     "name": "umd_digital/umd_terp",
     "type": "drupal-theme",
-    "description": "UMD Terp is the base theme for all UMD drupal 8 projects.",
-    "keywords": ["Drupal"],
+    "description": "UMD Terp is the base theme for all UMD drupal projects.",
+    "keywords": [
+        "Drupal", "UMD.EDU"
+    ],
     "license": "GPL-2.0+",
     "homepage": "https://github.com/umdsais/umd_terp",
     "minimum-stability": "dev",
     "authors": [
       {
-        "name": "Anthony Neumann",
-        "homepage": "https://www.drupal.org/u/agn507",
+        "name": "idfive",
+        "homepage": "https://idfive.com",
         "role": "Maintainer"
       },
       {
-        "name": "Dan Rogers",
-        "homepage": "https://www.drupal.org/u/dan_rogers",
+        "name": "UMD DIT",
+        "homepage": "https://it.umd.edu/",
         "role": "Maintainer"
       }
     ],
@@ -22,7 +24,11 @@
       "drupal/twig_tweak": "*",
       "drupal/twig_field_value": "*",
       "umd_digital/umd_terp_base": "*",
-      "umd_digital/umd_schoolwide_header": "8.1.8"
+      "umd_digital/umd_schoolwide_header": "*",
+      "drupal/core": "^11.0"
+    },
+    "conflict": {
+        "drupal/core": "<11.0"
     },
     "support": {
       "issues": "https://github.com/umdsais/umd_terp/issues",

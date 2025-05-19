@@ -1,8 +1,11 @@
 global:
-  version: VERSION
+  version: 11.0.0
   css:
     base:
-     static/build/css/index.css: { media: screen }
-     static/build/css/print.css: { media: print }
+      static/build/css/index.css:
+        { minified: true, preprocess: false, media: screen }
+      static/build/css/print.css:
+        { minified: true, preprocess: false, media: print }
   js:
-    static/build/js/index.js: {}
+    static/build/js/index.js:
+      { minified: true, preprocess: false, attributes: { type: "module" } }

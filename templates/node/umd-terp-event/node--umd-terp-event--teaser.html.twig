@@ -5,27 +5,29 @@
  */
 #}
 
-<div class="feed-item">
-	<div class="row no-gutters align-items-start">
-		<div class="col">
-			<div class="feed-item-body">
-        {% if node.field_umdt_ct_event_start_date.value ==  node.field_umdt_ct_event_end_date.value %}
-          <div class="feed-item-date">{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }}</div>
-        {% else %}
-          <div class="feed-item-date">{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }} - <span class="sr-only">to</span> {{ node.field_umdt_ct_event_end_date.value|date('F j, Y') }}</div>
-        {% endif %}
-				<h2 class="feed-item-title">
-					<a href="{{ link }}">{{ node.title.value }}</a>
-				</h2>
-				<div class="feed-item-description">
-					<p>{{ content.body|render|striptags }}</p>
-          {% apply spaceless %}
-            <a href="{{ link }}" class="btn btn-primary">
-              View Event Details<span class="sr-only"> for {{ node.title.value }}</span>
-            </a>
-          {% endapply %}
-				</div>
-			</div>
-		</div>
+<umd-element-event display="list" data-theme="" show-time="false">
+	{% if content.field_umdt_ct_event_image|field_value %}
+		<a slot="image" href="/">
+			<img src="{{ file_url(content.field_umdt_ct_event_image[0]['#media'].field_media_image.entity.uri.value | image_style('optimized')) }}" alt="{{ content.field_umdt_ct_event_image[0]['#media'].field_media_image.alt }}"/>
+		</a>
+	{% endif %}
+
+	<h2 slot="headline">{{ node.title.value }}</h2>
+
+	<div slot="text">
+		{{ content.body|render|striptags }}
 	</div>
-</div>
+
+	<div slot="start-date-iso">
+		{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }}</div>
+
+	<div slot="end-date-iso">{{ node.field_umdt_ct_event_end_date.value|date('F j, Y') }}</div>
+
+	<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="light">
+		<a href="{{ link }}" target="{{ link['#options'].attributes.target|default('_self') }}">
+			View Event Details<span class="sr-only">
+				for
+				{{ node.title.value }}</span>
+		</a>
+	</umd-element-call-to-action>
+</umd-element-event>

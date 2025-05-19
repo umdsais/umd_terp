@@ -30,16 +30,73 @@
 
 {% macro menu_links(items, attributes, menu_level) %}
 	{% import _self as menus %}
+
+	{# Primary Slots for sidenav #}
 	{% if items %}
-		<ul>
+		<div slot="primary-slide-links">
 			{% for item in items %}
-				<li{{item.attributes}}>
-					{{ link(item.title, item.url) }}
-					{% if item.below %}
-						{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-					{% endif %}
-				</li>
+				{% if item.below %}
+					<a href="{{ item.url }}" data-child-ref="slide-{{ loop.index }}">
+						<span>{{ item.title }}</span>
+					</a>
+				{% else %}
+					<a href="{{ item.url }}">
+						<span>{{ item.title }}</span>
+					</a>
+				{% endif %}
 			{% endfor %}
-		</ul>
+		</div>
+
+		{# Main Dropdown #}
+		<div slot="main-navigation">
+			{% for item in items %}
+				<umd-element-nav-item>
+					{% if item.below %}
+						<a href="{{ item.url }}" slot="primary-link">
+							<span>{{ item.title }}</span>
+						</a>
+						<div slot="dropdown-links">
+							{% for item in item.below %}
+								<a href="{{ item.url }}">
+									<span>{{ item.title }}</span>
+								</a>
+							{% endfor %}
+						</div>
+					{% else %}
+						<a href="{{ item.url }}" slot="primary-link">
+							<span>{{ item.title }}</span>
+						</a>
+					{% endif %}
+				</umd-element-nav-item>
+			{% endfor %}
+		</div>
 	{% endif %}
-{% endmacro %}
+
+	{# Children Slots for sidenav #}
+	{% if items %}
+		<div slot="children-slides">
+			{% for item in items %}
+				{% if item.below %}
+					{% set parent = loop.index %}
+				{% else %}
+					{% set parent = NULL %}
+				{% endif %}
+				{% if item.below %}
+					{% if parent %}
+						<div data-parent-ref="slide-{{ parent }}">
+						{% else %}
+							<div>
+							{% endif %}
+							{% for item in item.below %}
+								<a href="{{ item.url }}">
+									<span>{{ item.title }}</span>
+								</a>
+							{% endfor %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+
+	{% endmacro %}

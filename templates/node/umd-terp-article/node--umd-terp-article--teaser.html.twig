@@ -4,18 +4,22 @@
  * Theme override to display a UMD Terp Article node Teaser.
  */
 #}
-<div class="feed-item">
-  <div class="row no-gutters align-items-start">
-    <div class="col">
-      <div class="feed-item-body">
-        <div class="feed-item-date">{{ content.field_umdt_ct_article_date|field_value }}</div>
-        <h2 class="feed-item-title">
-          <a href="{{ link }}">{{ node.title.value }}</a>
-        </h2>
-        <div class="feed-item-description">
-          <p>{{ content.body|render|striptags }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+<umd-element-card display="list" data-theme="light">
+
+{% if content.field_umdt_ct_article_image|field_value %}
+		<a slot="image" href="/">
+			<img src="{{ file_url(content.field_umdt_ct_article_image[0]['#media'].field_media_image.entity.uri.value | image_style('optimized')) }}" alt="{{ content.field_umdt_ct_article_image[0]['#media'].field_media_image.alt }}"/>
+		</a>
+	{% endif %}
+	<div slot="eyebrow">{{ content.field_umdt_ct_article_date|field_value }}</div>
+	<h2 slot="headline">{{ node.title.value }}</h2>
+	<div slot="text">
+		{{ content.body|render|striptags }}
+	</div>
+	<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="light">
+		<a href="{{ link }}" target="{{ link['#options'].attributes.target|default('_self') }}">
+			View Article Details<span class="sr-only"> for {{ node.title.value }}</span>
+		</a>
+	</umd-element-call-to-action>
+</umd-element-card>

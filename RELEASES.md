@@ -1,3 +1,17 @@
+11.0.0
+======
+- Updated for D11 compatibility
+- updated to use UMD Design Library for multiple components
+- CONTENT: Will need to possibly reupload logo if dark header option was previously removed.
+- dark header option removed
+- local overrides for people/article removed, as these now use full breadcrumbs, not a “back” link.
+- Hide dark mode removed, as it conflicts with new options in UMD DL.
+- All logins now require UMD CAS.
+
+10.5.0
+======
+- All logins now require UMD CAS.
+
 8.1.106
 ======
 - Updated for D10 compatibility
