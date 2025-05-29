@@ -75,7 +75,8 @@ umd-element-breadcrumb {
 }
 
 // Rich text
-.umd-rich-text p {
+.umd-rich-text p,
+.umd-text-rich-advanced p {
   max-width: none !important;
 }
 
