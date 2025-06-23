@@ -86,3 +86,13 @@ umd-element-breadcrumb {
     margin-bottom: rem(25);
   }
 }
+
+//Divider, putting a clear both so it doesn't go through images
+.divider.divider {
+  clear: both;
+}
+
+//Adding bottom margin to person blocks to seperate them
+.umd-element-composite-card-block-person {
+  margin-bottom: 2em;
+}
