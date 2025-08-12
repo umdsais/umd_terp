@@ -1,4 +1,4 @@
-11.0.3
+11.0.5
 ======
 - All icomoon icon font assets, CSS, and references removed.
 - All icon-* classes and related SCSS removed.
