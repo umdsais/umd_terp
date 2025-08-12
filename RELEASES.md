@@ -1,3 +1,10 @@
+11.0.3
+======
+- All icomoon icon font assets, CSS, and references removed.
+- All icon-* classes and related SCSS removed.
+- Unused social-links.html.twig partial removed.
+- All navigation, sidebar, and slideshow icons now use inline SVG chevrons with utility classes for styling.
+- Updated SCSS to include .chevron utility class for consistent icon sizing and direction.
 11.0.0
 ======
 - Updated for D11 compatibility

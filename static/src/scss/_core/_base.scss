@@ -1,3 +1,21 @@
+// SVG chevron icon utility class
+.chevron {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  fill: currentColor;
+  transition: color 0.2s;
+}
+
+.chevron--left {
+  transform: scaleX(-1);
+}
+
+.chevron--right {
+  /* default orientation, no transform needed */
+}
 html {
   font-size: $rem-base;
 }

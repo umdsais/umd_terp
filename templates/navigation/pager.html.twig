@@ -47,7 +47,7 @@
       {% if items.previous %}
         <li class="pager__item pager__item--previous">
           <a href="{{ items.previous.href }}" title="{{ 'Go to previous page'|t }}" rel="prev"{{ items.previous.attributes|without('href', 'title', 'rel') }}>
-            <span class="icon icon-fancy-link-arrow" aria-hidden="true"></span>Previous<span class="sr-only">page</span>
+            <svg class="chevron chevron--left" title="previous page" aria-hidden="true" width="1em" height="1em" viewBox="0 0 96 96" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M52.9255 47.8801L18 13H42.214L77.5269 47.539L77.1858 47.8801L77.5269 48.2212L42.214 82.7602H18L52.9255 47.8801Z"></path></svg>Previous<span class="sr-only">page</span>
           </a>
         </li>
       {% endif %}
@@ -79,7 +79,7 @@
       {% if items.next %}
         <li class="pager__item pager__item--next">
           <a href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" rel="next"{{ items.next.attributes|without('href', 'title', 'rel') }}>
-            Next<span class="sr-only">page</span><span class="icon icon-fancy-link-arrow" aria-hidden="true"></span>
+            Next<span class="sr-only">page</span><svg class="chevron chevron--right" title="next page" aria-hidden="true" width="1em" height="1em" viewBox="0 0 96 96" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M52.9255 47.8801L18 13H42.214L77.5269 47.539L77.1858 47.8801L77.5269 48.2212L42.214 82.7602H18L52.9255 47.8801Z"></path></svg>
           </a>
         </li>
       {% endif %}
