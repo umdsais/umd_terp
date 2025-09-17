@@ -86,3 +86,10 @@ umd-element-breadcrumb {
     margin-bottom: rem(25);
   }
 }
+
+// Navigation pager at bottom of certain views (https://trello.com/c/nKGPozsU/8-articles-view-navigation)
+.pager__items {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
