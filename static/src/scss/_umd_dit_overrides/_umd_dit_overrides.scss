@@ -61,6 +61,11 @@ umd-element-breadcrumb {
     margin-bottom: 2rem;
   }
 }
+@media (min-width: 999.99px) {
+  .col-1000-4:has(umd-element-person) {
+    margin-bottom: 2rem;
+  }
+}
 
 // Events
 @media (max-width: 799.98px) {
