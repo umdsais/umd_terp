@@ -1,3 +1,14 @@
+11.0.7
+======
+- Renamed views directory grid template to apply to any additional displays (`views-view-grid--directory--embed.html.twig` → `views-view-grid--directory.html.twig`).
+- Added CSS for people views/feeds to add margin-bottom above 1000px (`.col-1000-4:has(umd-element-person) { margin-bottom: 2rem; }`).
+- Built CSS assets for navigation pager at the bottom of certain views.
+- Added navigation pager styles for articles view.
+
+11.0.6
+======
+- No release notes were added for 11.0.6. (Add details if available)
+
 11.0.5
 ======
 - All icomoon icon font assets, CSS, and references removed.
