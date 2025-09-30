@@ -19,13 +19,14 @@ const config = {
     publicPath: "../",
   },
   resolve: {
-    extensions: [".js", ".json", ".ts", ".hbs"],
+    extensions: [".mjs", ".js", ".json", ".ts", ".hbs"],
     alias: {
       "@universityofmaryland/web-styles-library": path.resolve(
         __dirname,
         "node_modules/@universityofmaryland/web-styles-library/dist"
       ),
     },
+    mainFields: ["browser", "module", "main"],
   },
   optimization: {
     minimizer: [
@@ -52,12 +53,21 @@ const config = {
         },
       },
       {
-        test: /\.js$/,
+        test: /\.(js|mjs)$/,
         exclude: function (modulePath) {
-          // Exclude node_modules except for the specific library
+          // Exclude node_modules except for the specific libraries
           return (
             /node_modules/.test(modulePath) &&
             !/node_modules\/@universityofmaryland\/web-styles-library/.test(
+              modulePath
+            ) &&
+            !/node_modules\/@universityofmaryland\/web-components-library/.test(
+              modulePath
+            ) &&
+            !/node_modules\/@universityofmaryland\/web-elements-library/.test(
+              modulePath
+            ) &&
+            !/node_modules\/@universityofmaryland\/web-feeds-library/.test(
               modulePath
             )
           );
@@ -66,6 +76,18 @@ const config = {
           path.resolve(
             __dirname,
             "node_modules/@universityofmaryland/web-styles-library"
+          ),
+          path.resolve(
+            __dirname,
+            "node_modules/@universityofmaryland/web-components-library"
+          ),
+          path.resolve(
+            __dirname,
+            "node_modules/@universityofmaryland/web-elements-library"
+          ),
+          path.resolve(
+            __dirname,
+            "node_modules/@universityofmaryland/web-feeds-library"
           ),
         ],
         type: "javascript/auto",
@@ -76,14 +98,29 @@ const config = {
               [
                 "@babel/preset-env",
                 {
-                  targets: "defaults",
+                  targets: {
+                    browsers: ["last 2 versions", "not ie <= 11"],
+                  },
                   modules: false,
+                  useBuiltIns: "usage",
+                  corejs: 3,
                 },
               ],
             ],
-            plugins: ["@babel/plugin-proposal-export-namespace-from"],
+            plugins: [
+              "@babel/plugin-proposal-export-namespace-from",
+              "@babel/plugin-transform-optional-chaining",
+              "@babel/plugin-transform-nullish-coalescing-operator",
+            ],
           },
         },
+      },
+      {
+        test: /\.mjs$/,
+        include: [
+          path.resolve(__dirname, "node_modules/@universityofmaryland"),
+        ],
+        type: "javascript/auto",
       },
       {
         test: /\.scss$/,
