@@ -15,7 +15,7 @@
 	<h2 slot="headline">{{ node.title.value }}</h2>
 
 	<div slot="text">
-		{{ content.body|render|striptags }}
+		{{ content.body|render|striptags|raw }}
 	</div>
 
 	<div slot="start-date-iso">

@@ -15,7 +15,7 @@
 	<div slot="eyebrow">{{ content.field_umdt_ct_article_date|field_value }}</div>
 	<h2 slot="headline">{{ node.title.value }}</h2>
 	<div slot="text">
-		{{ content.body|render|striptags }}
+		{{ content.body|render|striptags|raw }}
 	</div>
 	<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="light">
 		<a href="{{ link }}" target="{{ link['#options'].attributes.target|default('_self') }}">

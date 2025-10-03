@@ -1,3 +1,8 @@
+11.0.8
+======
+- Fixed HTML entity display issue in teaser templates by adding |raw filter to article and event teasers
+- HTML entities like &nbsp; are now properly decoded instead of showing as literal text
+
 11.0.7
 ======
 - Renamed views directory grid template to apply to any additional displays (`views-view-grid--directory--embed.html.twig` → `views-view-grid--directory.html.twig`).
