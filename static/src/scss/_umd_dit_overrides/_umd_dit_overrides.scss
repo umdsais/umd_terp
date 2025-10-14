@@ -113,3 +113,17 @@ umd-element-breadcrumb {
 .umd-element-composite-card-block-person {
   margin-bottom: 2em;
 }
+
+
+//partial fixes to reduce FOUC of hero image.
+umd-element-hero:not(:defined) {
+    min-height: 0px;
+    display: block;
+    opacity: 0;
+}
+umd-element-hero:defined {
+    container-type: inline-size;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
