@@ -59,7 +59,6 @@ function umd_terp_theme_suggestions_node_alter(array &$suggestions, array $varia
     if (is_numeric($node)) {
       $node = Node::load($node);
     }
-    $content_type = $node->bundle();
     $current_path = Drupal::service('path.current')->getPath();
     $alias = Drupal::service('path_alias.manager')->getAliasByPath($current_path);
 

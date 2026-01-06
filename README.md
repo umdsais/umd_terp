@@ -1,17 +1,17 @@
 # About UMD Terp Theme
 
-UMD Terp is the base theme for all UMD drupal 8 projects. It combines UMD approved elements and functionality, into a modified bootstrap theme. It is best used alongside the [UMD Terp Base Module](https://github.com/UMD-Digital/umd_terp_base), which provides a suite of modules, and configuration to make this theme work as designed. It is also designed to integrate the [UMD Schoolwide Header](https://github.com/UMD-Digital/umd_schoolwide_header).
+UMD Terp is the base theme for all UMD drupal 8 projects. It combines UMD approved elements and functionality, into a modified bootstrap theme. It is best used alongside the [UMD Terp Base Module](https://github.com/umdsais/umd_terp_base), which provides a suite of modules, and configuration to make this theme work as designed. It is also designed to integrate the [UMD Schoolwide Header](https://github.com/umdsais/umd_schoolwide_header).
 
 This theme can be used on its own, or as a base theme for further customizations via a custom sub-theme.
 
-- [UMD Terp Theme](https://github.com/UMD-Digital/umd_terp)
-- [UMD Terp Base Module](https://github.com/UMD-Digital/umd_terp_base)
-- [UMD Schoolwide Header](https://github.com/UMD-Digital/umd_schoolwide_header)
+- [UMD Terp Theme](https://github.com/umdsais/umd_terp)
+- [UMD Terp Base Module](https://github.com/umdsais/umd_terp_base)
+- [UMD Schoolwide Header](https://github.com/umdsais/umd_schoolwide_header)
 
 ## Requirements
 
 - [Twig Tweak Module](https://www.drupal.org/project/twig_tweak)
-- [UMD Terp Base Module](https://github.com/UMD-Digital/umd_terp_base)
+- [UMD Terp Base Module](https://github.com/umdsais/umd_terp_base)
 
 ## Installation
 
@@ -31,33 +31,27 @@ This theme can be used on its own, or as a base theme for further customizations
 
 ## Configuration
 
-- Ensure the [UMD Terp Base Module](https://github.com/UMD-Digital/umd_terp_base) is installed, and submodules enabled.
+- Ensure the [UMD Terp Base Module](https://github.com/umdsais/umd_terp_base) is installed, and submodules enabled.
 
 ### Theme options
 
-#### UMD Terp Header Settings
+#### Logo Image
 
-- Light header style: Defaults to dark header/nav area. This option switches it to a light header/nav area.
+- Logo: The logo of the department/institution/etc.
 
 #### UMD Terp Footer Settings
 
-- Logo: The logo of the department/institution/etc.
 - Address: The address of the department/institution/etc.
 - Phone number: The phone number of the department/institution/etc.
 - Email: The email address of the department/institution/etc.
 
 #### UMD Terp Social Media Accounts
 
-- Twitter link: The twitter link of the department/institution/etc.
-- Facebook link: The facebook link of the department/institution/etc.
+- Twitter(x) link: The twitter link of the department/institution/etc.
+- Facebook(meta) link: The facebook link of the department/institution/etc.
 - Youtube link: The youtube link of the department/institution/etc.
 - Instagram link: The instagram link of the department/institution/etc.
 - LinkedIn link: The linkedin link of the department/institution/etc.
-
-#### UMD Terp Directory Settings
-
-- Back to directory text: Provides the text for the back to directory link on profile pages.
-- Back to directory path: Provides the path for the back to directory link on profile pages.
 
 #### UMD Terp Admin Settings
 
@@ -71,19 +65,11 @@ Semantic tagging must take place in github for the updates to be able to be pull
 
 - Minor versions (non breaking changes): 8.1.1, 8.1.2, etc.
 - Major versions (breaking changes): 8.2.0, 8.3.0, etc.
-
-Tagging is handled via [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). Branch naming is as follows:
-
-- Production release branch: `master`
-- Next release development branch: `develop`
-- Feature branch prefix: `f-`
-- Release branch prefix: `r-`
-- Hotfix branch prefix: `h-`
-- Support branch prefix: `s-`
+- Core versions (based on if modules updated for specific drupal core): 9.0.0, 10.0.0, etc.
 
 ### Core (base) theme issues, patches, etc
 
-All edits, requests, etc should be submitted to the github repo for the [UMD Terp Theme](https://github.com/UMD-Digital/umd_terp). Please add issues to the [issues queue](https://github.com/UMD-Digital/umd_terp/issues). Patches will be reviewed on a merit and resources available basis.
+All edits, requests, etc should be submitted to the github repo for the [UMD Terp Theme](https://github.com/umdsais/umd_terp). Please add issues to the [issues queue](https://github.com/umdsais/umd_terp/issues). Patches will be reviewed on a merit and resources available basis.
 
 ### Frontend
 
@@ -100,7 +86,7 @@ THIS THEME SHOULD NEVER BE MODIFIED DIRECTLY. Instead, create a sub-theme so tha
 Notes on customization:
 
 - Several widgets include "dark mode". You should account for that if restyling kitchen sink widgets.
-- Don't forget to account for the [UMD Schoolwide Header](https://github.com/UMD-Digital/umd_schoolwide_header).
+- Don't forget to account for the [UMD Schoolwide Header](https://github.com/umdsais/umd_schoolwide_header).
 
 ## Troubleshooting
 

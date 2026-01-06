@@ -1,3 +1,44 @@
+11.0.8
+======
+- Fixed HTML entity display issue in teaser templates by adding |raw filter to article and event teasers
+- HTML entities like &nbsp; are now properly decoded instead of showing as literal text
+
+11.0.7
+======
+- Renamed views directory grid template to apply to any additional displays (`views-view-grid--directory--embed.html.twig` → `views-view-grid--directory.html.twig`).
+- Added CSS for people views/feeds to add margin-bottom above 1000px (`.col-1000-4:has(umd-element-person) { margin-bottom: 2rem; }`).
+- Built CSS assets for navigation pager at the bottom of certain views.
+- Added navigation pager styles for articles view.
+
+11.0.6
+======
+- No release notes were added for 11.0.6. (Add details if available)
+
+11.0.5
+======
+- All icomoon icon font assets, CSS, and references removed.
+- All icon-* classes and related SCSS removed.
+- Unused social-links.html.twig partial removed.
+- All navigation, sidebar, and slideshow icons now use inline SVG chevrons with utility classes for styling.
+- Updated SCSS to include .chevron utility class for consistent icon sizing and direction.
+11.0.0
+======
+- Updated for D11 compatibility
+- updated to use UMD Design Library for multiple components
+- CONTENT: Will need to possibly reupload logo if dark header option was previously removed.
+- dark header option removed
+- local overrides for people/article removed, as these now use full breadcrumbs, not a “back” link.
+- Hide dark mode removed, as it conflicts with new options in UMD DL.
+- All logins now require UMD CAS.
+
+10.5.0
+======
+- All logins now require UMD CAS.
+
+8.1.106
+======
+- Updated for D10 compatibility
+
 8.1.105
 ======
 - Fix text color and underline issues for buttons within accordions (https://bugify.idfive.com/issues/26998)

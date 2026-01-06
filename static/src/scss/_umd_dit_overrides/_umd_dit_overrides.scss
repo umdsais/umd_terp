@@ -1,0 +1,129 @@
+// Drupal Admin
+#toolbar-administration {
+  position: relative;
+  z-index: 100000;
+}
+
+// force line height for paragraph tags
+p {
+  line-height: 1.66667;
+}
+
+// UMD Red Global Header - ensure search dropdown does not overlap umd header below
+umd-element-navigation-utility {
+  position: relative;
+  z-index: 10000;
+}
+
+// UMD Header - Fade in until loaded (defined)
+umd-element-navigation-header:not(:defined) {
+  opacity: 0;
+}
+
+// Site Header
+umd-element-navigation-header {
+  padding-inline: rem(24);
+  @include media-breakpoint-up(800) {
+    padding-inline: rem(36);
+  }
+}
+
+umd-element-breadcrumb {
+  margin-bottom: rem(20);
+  display: block;
+}
+
+// Button & Link Sets
+.section-ut_button_set,
+.page-section-ut_button_set,
+.section-ut_link_set,
+.page-section-ut_link_set {
+  div:has(> umd-element-call-to-action) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(20);
+  }
+}
+
+// Carousel
+.section-ut_carousel {
+  .carousel-bg {
+    padding: rem(30);
+    &.carousel-bg-dark {
+      background-color: $black;
+    }
+  }
+}
+
+// Person Feed
+@media (max-width: 999.98px) {
+  .col-600-6:has(umd-element-person) {
+    margin-bottom: 2rem;
+  }
+}
+@media (min-width: 999.99px) {
+  .col-1000-4:has(umd-element-person) {
+    margin-bottom: 2rem;
+  }
+}
+
+// Events
+@media (max-width: 799.98px) {
+  .page-content .section.section-ut_events {
+    margin-inline: 0;
+  }
+}
+
+// Pathway Element
+.outer-pad:has(umd-element-pathway) {
+  padding: 0;
+}
+
+// Rich text
+.umd-rich-text p,
+.umd-text-rich-advanced p {
+  max-width: none !important;
+}
+
+// Force cards in feed to have margin botton
+.feed li:has(umd-element-card) {
+  &:not(:last-child) {
+    margin-bottom: rem(25);
+  }
+}
+
+// Navigation pager at bottom of certain views (https://trello.com/c/nKGPozsU/8-articles-view-navigation)
+.pager__items {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+//Divider, putting a clear both so it doesn't go through images
+.divider.divider {
+  clear: both;
+}
+
+//Adding clears to image with text to seperate them
+.section-ut_image_with_text {
+  clear: both;
+}
+
+//Adding bottom margin to person blocks to seperate them
+.umd-element-composite-card-block-person {
+  margin-bottom: 2em;
+}
+
+
+//partial fixes to reduce FOUC of hero image.
+umd-element-hero:not(:defined) {
+    min-height: 0px;
+    display: block;
+    opacity: 0;
+}
+umd-element-hero:defined {
+    container-type: inline-size;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}

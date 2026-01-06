@@ -1,6 +1,6 @@
 # Fractal Bootstrap
 
-This project provides a development experience that mirrors the idfive Component Library but instead uses Bootstrap 4 as the underlying frontend library.
+This project provides a development experience that mirrors the idfive Component Library but instead uses Bootstrap 4 as the underlying frontend library. Used to be fractal, but now a skeleton for use with UMD Digital Design system.
 
 ## Installation
 
@@ -10,21 +10,9 @@ Dependencies need to be installed with [node/npm](https://docs.npmjs.com/getting
 
 ## Development
 
-The component library includes [Fractal](http://fractal.build) for component based development. Your own components can be added to the `src/components` folder. Static assets such as JavaScript, CSS and images will be served out of the `build` folder, but can also be configured to your specific needs by editing the [fractal.js file](fractal.js). For more information, read the [fractal guide](http://fractal.build/guide).
-
-To start the fractal development server:
-
-`npm run fractal`
-
-Referencing images from within your component twig templates:
-
-```html
-<img src="{{'/img/image.png'|path}}" alt="" />
-```
-
 ### Watch mode
 
-If you do not wish to use Fractal, or simply want to watch for changes without launching a development server, you can run the watch command:
+If you want to watch for changes without launching a development server, you can run the watch command:
 
 `npm run watch`
 
