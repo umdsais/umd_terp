@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /* Base
    ========================================================================== */
 
@@ -283,7 +285,7 @@ h1,
   font-family: $font-family-sans-serif;
   font-weight: 700;
   font-size: rem(42);
-  line-height: (72 / 68);
+  line-height: math.div(72, 68);
 
   @include media-breakpoint-up(800) {
     font-size: rem(64);
@@ -296,7 +298,7 @@ h2,
 .umd-rich-text .h2 {
   font-family: $font-family-serif;
   font-size: rem(36);
-  line-height: (48 / 42);
+  line-height: math.div(48, 42);
   @include media-breakpoint-up(800) {
     font-size: rem(42);
   }
@@ -309,7 +311,7 @@ h3,
   font-family: $font-family-sans-serif;
   font-size: rem(28);
   font-weight: 600;
-  line-height: (36 / 28);
+  line-height: math.div(36, 28);
 }
 
 h4,
@@ -318,7 +320,7 @@ h4,
 .umd-rich-text .h4 {
   font-family: $font-family-serif;
   font-size: rem(26);
-  line-height: (40 / 26);
+  line-height: math.div(40, 26);
 }
 
 h5,
@@ -328,7 +330,7 @@ h5,
   font-family: $font-family-sans-serif;
   font-size: rem(22);
   font-weight: 600;
-  line-height: (28 / 22);
+  line-height: math.div(28, 22);
 }
 
 h6,
@@ -382,7 +384,7 @@ blockquote {
   display: table;
   font-size: rem(15);
   font-weight: 700;
-  line-height: (26 / 15);
+  line-height: math.div(26, 15);
   margin-bottom: rem(12);
   position: relative;
   padding-left: rem(20);

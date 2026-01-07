@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /* Flickity */
 
 .flickity-enabled.flickity-enabled {
@@ -12,12 +14,12 @@
   justify-content: center;
 
   .dot {
-    background-color: #ACACAC;
+    background-color: #acacac;
     height: rem(14);
     width: rem(14);
     margin: 0 rem(16);
     opacity: 1;
-    transition: .3s background-color ease-in-out;
+    transition: 0.3s background-color ease-in-out;
 
     &.is-selected {
       background-color: $red;
@@ -39,8 +41,8 @@ body .umdheader-wrap {
 
   .umdheader-main__container {
     max-width: $max-bound-width !important;
-    padding-right: $grid-gutter-width / 2 !important;
-    padding-left: $grid-gutter-width / 2 !important;
+    padding-right: math.div($grid-gutter-width, 2) !important;
+    padding-left: math.div($grid-gutter-width, 2) !important;
 
     @include media-breakpoint-up(1200) {
       padding-right: rem(24) !important;

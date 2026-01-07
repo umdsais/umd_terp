@@ -1,6 +1,5 @@
 %card-dark {
   &[role="link"] {
-
     &:hover,
     &:focus {
       .card-body {
@@ -105,7 +104,7 @@
     }
 
     @include media-breakpoint-up(1000) {
-      padding: rem(32) rem(60)
+      padding: rem(32) rem(60);
     }
 
     @include media-breakpoint-up(1200) {
@@ -188,7 +187,7 @@
 
 %event-dark {
   background-color: $gray-900;
-  border-color: #5D5D5D;
+  border-color: #5d5d5d;
 
   &[role="link"] {
     &:hover {
@@ -214,7 +213,7 @@
       }
 
       .event-time-location {
-        >span {
+        > span {
           &:not(:last-child) {
             &:after {
               color: $red;
@@ -238,7 +237,7 @@
   }
 
   .event-time-location {
-    >span {
+    > span {
       &:not(:last-child) {
         &:after {
           color: $yellow;
@@ -328,7 +327,7 @@
 %link {
   border-bottom: 1px solid transparent;
   color: $red;
-  transition: .25s border-color ease-in-out;
+  transition: 0.25s border-color ease-in-out;
 
   &:hover {
     border-bottom-color: $red;
@@ -341,8 +340,7 @@
   font-weight: 700;
   margin-right: rem(36);
   position: relative;
-  transition: .25s border-color ease-in-out,
-    .25s color ease-in-out;
+  transition: 0.25s border-color ease-in-out, 0.25s color ease-in-out;
 
   &:hover,
   &:focus {
@@ -356,7 +354,6 @@
   }
 
   &:after {
-
     content: "\e901";
     display: inline-block;
     font-size: rem(4);
@@ -364,7 +361,6 @@
     bottom: rem(6);
     position: absolute;
     transform: translate(0, -50%);
-    transition: .25s opacity ease-in-out,
-      .25s transform ease-in-out;
+    transition: 0.25s opacity ease-in-out, 0.25s transform ease-in-out;
   }
 }

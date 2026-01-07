@@ -1,14 +1,18 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "targets": {
-          "browsers": [
-            "last 2 versions"
-          ]
-        }
+          "browsers": ["last 2 versions"]
+        },
+        "modules": false
       }
     ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-optional-chaining",
+    "@babel/plugin-transform-nullish-coalescing-operator",
+    "@babel/plugin-proposal-export-namespace-from"
   ]
 }

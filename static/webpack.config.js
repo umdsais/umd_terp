@@ -1,8 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
-const UglifyJsPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = {
@@ -14,12 +14,11 @@ const config = {
   output: {
     filename: "js/index.js",
     path: path.resolve(__dirname, "build"),
-    hotUpdateChunkFilename: "hot/hot-update.js",
-    hotUpdateMainFilename: "hot/hot-update.json",
     publicPath: "../",
+    clean: true,
   },
   resolve: {
-    extensions: [".js", ".json", ".ts", ".hbs"],
+    extensions: [".js", ".json", ".ts", ".hbs", ".mjs"],
     alias: {
       "@universityofmaryland/web-styles-library": path.resolve(
         __dirname,
@@ -29,16 +28,10 @@ const config = {
   },
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
+      new TerserPlugin({
         parallel: true,
-        sourceMap: true,
       }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorPluginOptions: {
-          preset: ["default", { discardComments: { removeAll: true } }],
-        },
-      }),
+      new CssMinimizerPlugin(),
     ],
   },
   module: {
@@ -48,27 +41,15 @@ const config = {
         loader: "ts-loader",
         exclude: /node_modules/,
         options: {
-          transpileOnly: true, // Add this line
+          transpileOnly: true,
         },
       },
       {
-        test: /\.js$/,
-        exclude: function (modulePath) {
-          // Exclude node_modules except for the specific library
-          return (
-            /node_modules/.test(modulePath) &&
-            !/node_modules\/@universityofmaryland\/web-styles-library/.test(
-              modulePath
-            )
-          );
+        test: /\.m?js$/,
+        exclude: /node_modules\/(?!@universityofmaryland)/,
+        resolve: {
+          fullySpecified: false,
         },
-        include: [
-          path.resolve(
-            __dirname,
-            "node_modules/@universityofmaryland/web-styles-library"
-          ),
-        ],
-        type: "javascript/auto",
         use: {
           loader: "babel-loader",
           options: {
@@ -76,12 +57,21 @@ const config = {
               [
                 "@babel/preset-env",
                 {
-                  targets: "defaults",
+                  targets: {
+                    chrome: "80",
+                    firefox: "74",
+                    safari: "13.1",
+                    edge: "80",
+                  },
                   modules: false,
                 },
               ],
             ],
-            plugins: ["@babel/plugin-proposal-export-namespace-from"],
+            plugins: [
+              "@babel/plugin-transform-optional-chaining",
+              "@babel/plugin-transform-nullish-coalescing-operator",
+              "@babel/plugin-proposal-export-namespace-from",
+            ],
           },
         },
       },
@@ -96,7 +86,9 @@ const config = {
               {
                 loader: "postcss-loader",
                 options: {
-                  ident: "postcss",
+                  postcssOptions: {
+                    plugins: [["autoprefixer"]],
+                  },
                 },
               },
               "resolve-url-loader",
@@ -104,27 +96,43 @@ const config = {
                 loader: "sass-loader",
                 options: {
                   sourceMap: true,
+                  implementation: require("sass"),
+                  sassOptions: {
+                    quietDeps: true, // Suppress warnings from dependencies
+                    warnForDeprecation: false, // Suppress deprecation warnings during transition
+                  },
                 },
               },
             ],
           },
           {
+            include: [path.resolve(__dirname, "src/scss/print.scss")],
             use: [
               {
-                loader: "file-loader",
+                loader: MiniCssExtractPlugin.loader,
                 options: {
-                  name: "[name].css",
-                  outputPath: "css",
+                  publicPath: "../",
                 },
               },
-              "extract-loader",
               "css-loader",
-              "postcss-loader",
+              {
+                loader: "postcss-loader",
+                options: {
+                  postcssOptions: {
+                    plugins: [["autoprefixer"]],
+                  },
+                },
+              },
               "resolve-url-loader",
               {
                 loader: "sass-loader",
                 options: {
                   sourceMap: true,
+                  implementation: require("sass"),
+                  sassOptions: {
+                    quietDeps: true, // Suppress warnings from dependencies
+                    warnForDeprecation: false, // Suppress deprecation warnings during transition
+                  },
                 },
               },
             ],
@@ -133,39 +141,38 @@ const config = {
       },
       {
         test: /\.(woff|woff2|eot|ttf)$/,
-        loader: "url-loader",
-        options: {
-          limit: 1000,
-          name: "[name].[ext]",
-          outputPath: "fonts/",
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
         },
         exclude: [path.resolve(__dirname, "img")],
       },
       {
         test: /\.svg$/,
-        loader: "file-loader",
-        options: {
-          name: "[name].[ext]",
-          outputPath: "fonts/",
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
         },
         exclude: [path.resolve(__dirname, "src", "img")],
       },
       {
         test: /\.(jpg|jpeg|gif|png)$/,
-        loader: "url-loader",
-        options: {
-          limit: 1000,
-          name: "[name].[ext]",
-          outputPath: "img/",
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 1000,
+          },
+        },
+        generator: {
+          filename: "img/[name][ext]",
         },
         exclude: [path.resolve(__dirname, "fonts")],
       },
       {
         test: /\.svg$/,
-        loader: "file-loader",
-        options: {
-          name: "[name].[ext]",
-          outputPath: "img/",
+        type: "asset/resource",
+        generator: {
+          filename: "img/[name][ext]",
         },
         exclude: [path.resolve(__dirname, "src", "fonts")],
       },
@@ -180,16 +187,18 @@ const config = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: "src/img",
-        to: "img",
-      },
-      {
-        from: "src/video",
-        to: "video",
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "src/img",
+          to: "img",
+        },
+        {
+          from: "src/video",
+          to: "video",
+        },
+      ],
+    }),
 
     new MiniCssExtractPlugin({
       filename: "css/index.css",
@@ -201,7 +210,9 @@ module.exports = (env, argv) => {
   if (argv.mode === "development") {
     config.devServer = {
       hot: true,
-      publicPath: "/build/",
+      devMiddleware: {
+        publicPath: "/build/",
+      },
     };
     config.plugins.push(new webpack.HotModuleReplacementPlugin());
   }

@@ -1,56 +1,68 @@
+@use "sass:math";
+@use "sass:string";
+
+// Bootstrap 4 compatibility function for divide
+@function divide($dividend, $divisor) {
+  @return math.div($dividend, $divisor);
+}
+
 /* Base
   ========================================================================== */
 
 $body-color: #000000;
 $rem-base: 16px;
 $font-size-base: 1.125rem; // 18px (this needs to be specified in rem for core bootstrap functions to work)
-$line-height-base: (30 / 18);
+$line-height-base: math.div(30, 18);
 $max-bound-width: 1440px;
 $headings-margin-bottom: 24px;
 
 /* Colors
   ==========================================================================*/
 
-$red: #E21833;
-$red-2: #D91731; // Slightly darker shade of normal red to pass AA contrast requirements when used on gray backgrounds
-$dark-red: #9F001C;
-$yellow: #FFD520;
-$gray-100: #F7F7F7;
-$gray-200: #EAEAEA;
-$gray-300: #D8D8D8;
-$gray-400: #C8C8C8;
+$red: #e21833;
+$red-2: #d91731; // Slightly darker shade of normal red to pass AA contrast requirements when used on gray backgrounds
+$dark-red: #9f001c;
+$yellow: #ffd520;
+$gray-100: #f7f7f7;
+$gray-200: #eaeaea;
+$gray-300: #d8d8d8;
+$gray-400: #c8c8c8;
 $gray-500: #979797;
 $gray-600: #666666;
-$gray-700: #4A4A4A;
+$gray-700: #4a4a4a;
 $gray-800: #333333;
 $gray-900: #222222;
 $gray-1000: #181818;
-$white: #FFFFFF;
+$white: #ffffff;
 $black: #000000;
 
-$grays: ("1000": $gray-1000);
+$grays: (
+  "1000": $gray-1000,
+);
 
-$colors: ("gray-light": $gray-100,
+$colors: (
+  "gray-light": $gray-100,
   "gray-dark": $gray-900,
   "red": $red,
   "dark-red": $dark-red,
-  "yellow": $yellow);
+  "yellow": $yellow,
+);
 
-$theme-colors: ("light-gray": $gray-100,
+$theme-colors: (
+  "light-gray": $gray-100,
   "dark-gray": $gray-900,
   "red": $red,
   "dark-red": $dark-red,
   "yellow": $yellow,
   "white": $white,
-  "black": $black);
+  "black": $black,
+);
 
 /* Typography
   ========================================================================== */
 
-$font-family-sans-serif: 'Source Sans Pro',
-sans-serif;
-$font-family-serif: 'Crimson Text',
-serif;
+$font-family-sans-serif: "Source Sans Pro", sans-serif;
+$font-family-serif: "Crimson Text", serif;
 
 $link-color: $red;
 $link-hover-color: $dark-red;
@@ -66,7 +78,8 @@ $list-padding: 0 0 0 2rem;
 /* Layout
   ========================================================================== */
 
-$grid-breakpoints: (0: 0,
+$grid-breakpoints: (
+  0: 0,
   399: 399px,
   400: 400px,
   449: 449px,
@@ -86,20 +99,23 @@ $grid-breakpoints: (0: 0,
   1199: 1199px,
   1200: 1200px,
   1439: 1439px,
-  1440: 1440px);
+  1440: 1440px,
+);
 
-$container-max-widths: (400: 1240px);
+$container-max-widths: (
+  400: 1240px,
+);
 
 /* Breadcrumbs
   ========================================================================== */
 
-$breadcrumb-font-size: .7222rem;
+$breadcrumb-font-size: 0.7222rem;
 $breadcrumb-padding-y: 0;
 $breadcrumb-padding-x: 0;
 $breadcrumb-item-padding-x: 0;
 $breadcrumb-margin-bottom: 0;
 $breadcrumb-bg: transparent;
-$breadcrumb-divider: quote(">");
+$breadcrumb-divider: string.quote(">");
 $breadcrumb-border-radius: 0;
 
 /* Button
@@ -107,23 +123,21 @@ $breadcrumb-border-radius: 0;
 
 $btn-border-radius: 0;
 $btn-border-width: 2px;
-$btn-font-size: .889rem;
-$btn-line-height: (20 / 16);
+$btn-font-size: 0.889rem;
+$btn-line-height: math.div(20, 16);
 $btn-padding-x: 3.1rem;
-$btn-padding-y: .889rem;
-$btn-transition: .3s background-color ease-in-out,
-.3s border-color ease-in-out,
-.3s box-shadow ease-in-out,
-.3s color ease-in-out;
-
+$btn-padding-y: 0.889rem;
+$btn-transition: 0.3s background-color ease-in-out,
+  0.3s border-color ease-in-out, 0.3s box-shadow ease-in-out,
+  0.3s color ease-in-out;
 
 /* Table
   ========================================================================== */
 
-$table-cell-padding: .667rem 1rem;
+$table-cell-padding: 0.667rem 1rem;
 $table-cell-vertical-align: middle;
 $table-bg: #fff;
-$table-accent-bg: #F8F8F8;
+$table-accent-bg: #f8f8f8;
 $table-border-width: 0;
 $table-dark-bg: $gray-900;
 $table-dark-accent-bg: $gray-800;
@@ -148,8 +162,8 @@ $card__image-ar: 66.667%;
 
 /* Embed
   ========================================================================== */
-$embed-responsive-aspect-ratios: (((2 1),
-  ));
+// Disable Bootstrap embed utilities to avoid Sass compatibility issues
+$embed-responsive-aspect-ratios: ();
 
 /* Tab Panel
   ========================================================================== */
@@ -163,7 +177,7 @@ $nav-tabs-border-radius: 0;
 /* Navbar
   ========================================================================== */
 $navbar-padding-x: 1rem;
-$navbar-padding-y: .5rem;
+$navbar-padding-y: 0.5rem;
 
 $navbar-brand-height: 2.3125rem;
 $navbar-brand-padding-y: 0;
@@ -187,7 +201,7 @@ $dropdown-spacer: 0;
 /* Accordion
   ========================================================================== */
 
-$accordion-slide-duration: .5s;
+$accordion-slide-duration: 0.5s;
 
 $accordion__label-background: $white;
 $accordion__section-border: 1px solid $gray-500;

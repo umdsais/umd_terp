@@ -1,21 +1,24 @@
+@use "sass:math";
+@use "sass:meta";
+
 @function strip-unit($number) {
-  @if type-of($number)=='number'and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+  @if meta.type-of($number) == "number" and not math.is-unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
   }
 
   @return $number;
 }
 
 @function em($size, $context-size: $rem-base) {
-  @return (strip-unit($size) / strip-unit($context-size)) * 1em;
+  @return math.div(strip-unit($size), strip-unit($context-size)) * 1em;
 }
 
 @function rem($size, $context-size: $rem-base) {
-  @return (strip-unit($size) / strip-unit($context-size)) * 1rem;
+  @return math.div(strip-unit($size), strip-unit($context-size)) * 1rem;
 }
 
 @function vw($size, $viewport-width) {
-  @return (strip-unit($size) / strip-unit($viewport-width)) * 100vw;
+  @return math.div(strip-unit($size), strip-unit($viewport-width)) * 100vw;
 }
 
 @function vh($size, $viewport-height) {
