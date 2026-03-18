@@ -127,3 +127,9 @@ umd-element-hero:defined {
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
 }
+
+
+//attempt to standarize left margin justify for ordered and unordered lists
+.editor-content ul > li::before, .card-text ul > li::before {
+  margin-left: 0 !important;
+}
