@@ -130,6 +130,6 @@ umd-element-hero:defined {
 
 
 //attempt to standarize left margin justify for ordered and unordered lists
-.editor-content ul > li::before, .card-text ul > li::before {
-  margin-left: 0 !important;
+.editor-content ol > li::before, .card-text ol > li::before {
+  margin-left: -1.5rem !important;
 }
