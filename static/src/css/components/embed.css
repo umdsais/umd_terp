@@ -1,0 +1,40 @@
+.section.section-ut_video {
+  margin: 35px 0;
+  @media (width >= 800px) {
+    margin: 20px 0;
+  }
+  .page-content & {
+    @media (width < 799px) {
+      margin-right: -24px;
+      margin-left: -24px;
+    }
+  }
+}
+
+.embed-bg {
+  padding: 0 24px;
+  @media (width >= 800px) {
+    padding: 0 36px;
+  }
+  figure {
+    margin-bottom: 0;
+  }
+  &.embed-bg-dark {
+    background-color: var(--color-gray-900);
+    padding: 15px 24px;
+    @media (width >= 800px) {
+      padding: 40px 36px;
+    }
+    figcaption {
+      color: var(--color-white);
+    }
+  }
+}
+
+.responsive-embed {
+  iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+  }
+}

@@ -1,0 +1,37 @@
+.divider.divider {
+  background-color: transparent;
+  border: none;
+  height: 0;
+
+  &.spacing-small {
+    margin: 32px 0;
+  }
+
+  &.spacing-medium {
+    margin: 40px 0;
+  }
+
+  &.spacing-large {
+    margin: 52px 0;
+  }
+
+  &.spacing-xlarge {
+    margin: 64px 0;
+  }
+
+  &.rule-small {
+    border-bottom: 1px solid #ededed;
+  }
+
+  &.rule-medium {
+    border-bottom: 3px solid #ededed;
+  }
+
+  &.rule-large {
+    border-bottom: 5px solid #ededed;
+  }
+
+  &.rule-xlarge {
+    border-bottom: 8px solid #ededed;
+  }
+}

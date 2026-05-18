@@ -8,18 +8,21 @@
 <umd-element-card display="list" data-theme="light">
 
 {% if content.field_umdt_ct_article_image|field_value %}
-		<a slot="image" href="/">
+		<a slot="image" href="{{ link }}">
 			<img src="{{ file_url(content.field_umdt_ct_article_image[0]['#media'].field_media_image.entity.uri.value | image_style('optimized')) }}" alt="{{ content.field_umdt_ct_article_image[0]['#media'].field_media_image.alt }}"/>
 		</a>
 	{% endif %}
 	<div slot="eyebrow">{{ content.field_umdt_ct_article_date|field_value }}</div>
 	<h2 slot="headline">{{ node.title.value }}</h2>
-	<div slot="text">
-		{{ content.body|render|striptags|raw }}
-	</div>
+	{% set teaser_text = node.body.summary|trim ?: node.body.processed|striptags|replace({'&nbsp;': ' ', '  ': ' '})|trim %}
+	{% if teaser_text %}
+		<div slot="text">
+			{{ teaser_text|slice(0, 300) }}{% if teaser_text|length > 300 %}...{% endif %}
+		</div>
+	{% endif %}
 	<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="light">
-		<a href="{{ link }}" target="{{ link['#options'].attributes.target|default('_self') }}">
-			View Article Details<span class="sr-only"> for {{ node.title.value }}</span>
+		<a href="{{ link }}">
+			View Article<span class="sr-only"> Details for {{ node.title.value }}</span>
 		</a>
 	</umd-element-call-to-action>
 </umd-element-card>

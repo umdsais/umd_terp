@@ -2,7 +2,11 @@
 
 {% block hero %}
 
-	<umd-element-hero type="default-interior">
+	{% if umd_terp_hero_type == 'minimal' %}
+		<umd-element-hero-minimal data-theme="light">
+	{% else %}
+		<umd-element-hero type="default-interior">
+	{% endif %}
 
 		{% if node.field_umdt_ct_event_start_date.value == node.field_umdt_ct_event_end_date.value %}
 			<div slot="eyebrow">{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }}</div>
@@ -30,7 +34,11 @@
 			</div>
 		{% endif %}
 
-	</umd-element-hero>
+	{% if umd_terp_hero_type == 'minimal' %}
+		</umd-element-hero-minimal>
+	{% else %}
+		</umd-element-hero>
+	{% endif %}
 
 {% endblock %}
 

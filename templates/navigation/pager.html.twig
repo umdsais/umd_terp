@@ -34,12 +34,13 @@
 #}
 {% if items %}
   <nav class="pager" role="navigation" aria-labelledby="{{ heading_id }}">
+    <h4 id="{{ heading_id }}" class="visually-hidden">{{ 'Pagination'|t }}</h4>
     <ul class="pager__items js-pager__items">
       {# Print first item if we are not on the first page. #}
       {% if items.first %}
         <li class="pager__item pager__item--first">
           <a href="{{ items.first.href }}" title="{{ 'Go to first page'|t }}"{{ items.first.attributes|without('href', 'title') }}>
-            First<span class="sr-only">page</span>
+            First<span class="visually-hidden">page</span>
           </a>
         </li>
       {% endif %}
@@ -47,7 +48,7 @@
       {% if items.previous %}
         <li class="pager__item pager__item--previous">
           <a href="{{ items.previous.href }}" title="{{ 'Go to previous page'|t }}" rel="prev"{{ items.previous.attributes|without('href', 'title', 'rel') }}>
-            <svg class="chevron chevron--left" title="previous page" aria-hidden="true" width="1em" height="1em" viewBox="0 0 96 96" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M52.9255 47.8801L18 13H42.214L77.5269 47.539L77.1858 47.8801L77.5269 48.2212L42.214 82.7602H18L52.9255 47.8801Z"></path></svg>Previous<span class="sr-only">page</span>
+            <svg class="chevron chevron--left" title="previous page" aria-hidden="true" width="1em" height="1em" viewBox="0 0 96 96" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M52.9255 47.8801L18 13H42.214L77.5269 47.539L77.1858 47.8801L77.5269 48.2212L42.214 82.7602H18L52.9255 47.8801Z"></path></svg>Previous<span class="visually-hidden">page</span>
           </a>
         </li>
       {% endif %}
@@ -79,7 +80,7 @@
       {% if items.next %}
         <li class="pager__item pager__item--next">
           <a href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" rel="next"{{ items.next.attributes|without('href', 'title', 'rel') }}>
-            Next<span class="sr-only">page</span><svg class="chevron chevron--right" title="next page" aria-hidden="true" width="1em" height="1em" viewBox="0 0 96 96" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M52.9255 47.8801L18 13H42.214L77.5269 47.539L77.1858 47.8801L77.5269 48.2212L42.214 82.7602H18L52.9255 47.8801Z"></path></svg>
+            Next<span class="visually-hidden">page</span><svg class="chevron chevron--right" title="next page" aria-hidden="true" width="1em" height="1em" viewBox="0 0 96 96" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M52.9255 47.8801L18 13H42.214L77.5269 47.539L77.1858 47.8801L77.5269 48.2212L42.214 82.7602H18L52.9255 47.8801Z"></path></svg>
           </a>
         </li>
       {% endif %}
@@ -87,7 +88,7 @@
       {% if items.last %}
         <li class="pager__item pager__item--last">
           <a href="{{ items.last.href }}" title="{{ 'Go to last page'|t }}"{{ items.last.attributes|without('href', 'title') }}>
-            Last<span class="sr-only">page</span>
+            Last<span class="visually-hidden">page</span>
           </a>
         </li>
       {% endif %}

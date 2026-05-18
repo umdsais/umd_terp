@@ -35,12 +35,13 @@
 	{% if items %}
 		<div slot="primary-slide-links">
 			{% for item in items %}
+				{% set target_attr = item.url.getOption('attributes')['target'] ?? '' %}
 				{% if item.below %}
-					<a href="{{ item.url }}" data-child-ref="slide-{{ loop.index }}">
+					<a href="{{ item.url }}"{% if target_attr %} target="{{ target_attr }}"{% endif %} data-child-ref="slide-{{ loop.index }}">
 						<span>{{ item.title }}</span>
 					</a>
 				{% else %}
-					<a href="{{ item.url }}">
+					<a href="{{ item.url }}"{% if target_attr %} target="{{ target_attr }}"{% endif %}>
 						<span>{{ item.title }}</span>
 					</a>
 				{% endif %}
@@ -50,20 +51,22 @@
 		{# Main Dropdown #}
 		<div slot="main-navigation">
 			{% for item in items %}
+				{% set target_attr = item.url.getOption('attributes')['target'] ?? '' %}
 				<umd-element-nav-item>
 					{% if item.below %}
-						<a href="{{ item.url }}" slot="primary-link">
+						<a href="{{ item.url }}"{% if target_attr %} target="{{ target_attr }}"{% endif %} slot="primary-link">
 							<span>{{ item.title }}</span>
 						</a>
 						<div slot="dropdown-links">
 							{% for item in item.below %}
-								<a href="{{ item.url }}">
+								{% set sub_target_attr = item.url.getOption('attributes')['target'] ?? '' %}
+								<a href="{{ item.url }}"{% if sub_target_attr %} target="{{ sub_target_attr }}"{% endif %}>
 									<span>{{ item.title }}</span>
 								</a>
 							{% endfor %}
 						</div>
 					{% else %}
-						<a href="{{ item.url }}" slot="primary-link">
+						<a href="{{ item.url }}"{% if target_attr %} target="{{ target_attr }}"{% endif %} slot="primary-link">
 							<span>{{ item.title }}</span>
 						</a>
 					{% endif %}
@@ -88,7 +91,8 @@
 							<div>
 							{% endif %}
 							{% for item in item.below %}
-								<a href="{{ item.url }}">
+								{% set child_target_attr = item.url.getOption('attributes')['target'] ?? '' %}
+								<a href="{{ item.url }}"{% if child_target_attr %} target="{{ child_target_attr }}"{% endif %}>
 									<span>{{ item.title }}</span>
 								</a>
 							{% endfor %}

@@ -1,0 +1,55 @@
+umd_terp.settings:
+  type: theme_settings
+  label: 'UMD Terp theme settings'
+  mapping:
+    umd_terp_hero_type:
+      type: string
+      label: 'Hero type'
+    umd_terp_footer_type:
+      type: string
+      label: 'Footer type'
+    umd_terp_mega_footer_column_one_heading:
+      type: label
+      label: 'Mega Footer: Column One Heading'
+    umd_terp_mega_footer_column_two_heading:
+      type: label
+      label: 'Mega Footer: Column Two Heading'
+    umd_terp_mega_footer_column_three_heading:
+      type: label
+      label: 'Mega Footer: Column Three Heading'
+    umd_terp_address:
+      type: label
+      label: 'Address'
+    umd_terp_phone:
+      type: label
+      label: 'Phone number'
+    umd_terp_email:
+      type: label
+      label: 'Email'
+    umd_terp_twitter_link:
+      type: string
+      label: 'Twitter(x) link'
+    umd_terp_facebook_link:
+      type: string
+      label: 'Facebook(meta) link'
+    umd_terp_youtube_link:
+      type: string
+      label: 'Youtube link'
+    umd_terp_instagram_link:
+      type: string
+      label: 'Instagram link'
+    umd_terp_linkedin_link:
+      type: string
+      label: 'LinkedIn link'
+    umd_terp_threads_link:
+      type: string
+      label: 'Threads link'
+    umd_terp_assets_path:
+      type: string
+      label: 'Assets path'
+    umd_terp_articles_path:
+      type: string
+      label: 'Articles path'
+    umd_terp_people_department_label:
+      type: label
+      label: 'People department label'

@@ -4,7 +4,8 @@
   before and after the link text.
 #}
 {% apply spaceless %}
-  <a href="{{ link['#url'] }}" class="{{ classes }}" target="{{ link['#options'].attributes.target|default('_self') }}">
+  {% set target = link['#url'].getOption('attributes')['target'] ?? '_self' %}
+  <a href="{{ link['#url'] }}" class="{{ classes }}" target="{{ target }}">
     {% if title %}
       {{ title }}
     {% else %}

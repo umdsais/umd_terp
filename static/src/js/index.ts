@@ -1,10 +1,14 @@
-import LoadUmdComponents from "@universityofmaryland/web-components-library";
+// Import main styles
+// @ts-ignore
+import "../css/index.css";
+
+import { initializeBundle } from "@universityofmaryland/web-components-library/bundle";
 import * as Styles from "@universityofmaryland/web-styles-library";
 import Tablesaw from "../components/table/table";
 import initSubnav from "../components/subnav/subnav";
 
 document.addEventListener("DOMContentLoaded", () => {
-  LoadUmdComponents();
+  initializeBundle();
   initSubnav();
   Tablesaw.init();
 

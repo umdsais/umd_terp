@@ -1,0 +1,33 @@
+.btn-set {
+  margin-bottom: -24px;
+  @media (width >= 800px) {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .btn {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    justify-content: center;
+    margin: 0 0 24px 0;
+    width: 100%;
+    @media (width >= 800px) {
+      display: inline-block;
+      margin-right: 24px;
+      width: auto;
+    }
+    &:first-child {
+      @media (width >= 800px) {
+        margin-left: 0;
+      }
+    }
+    &.btn-link {
+      display: table;
+      width: auto;
+    }
+  }
+  &.btn-set-centered {
+    justify-content: center;
+  }
+}

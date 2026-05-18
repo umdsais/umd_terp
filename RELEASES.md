@@ -1,3 +1,15 @@
+11.1.0
+======
+- Build system migrated from Webpack/SCSS to Vite/CSS.
+- Added configurable Interior Hero type (Default or Minimal) via theme settings. Applies to article and event pages.
+- Added Mega Footer option via theme settings, with three configurable link columns drawn from dedicated menus (Footer Mega Menu Column One/Two/Three).
+- Added Threads social link support to both Simple and Mega footer variants.
+- Added Utility Menu support in the site header; links from the `utility-menu` menu are rendered into the header navigation component's utility and primary slide content slots.
+- Added `_umd_terp_render_menu()` helper function to render menus into variables for use in templates.
+- Removed footer logo path setting.
+- Updated JS bundle entry point to use `initializeBundle` from `@universityofmaryland/web-components-library/bundle`.
+- Removed legacy component SCSS files; styles are now managed via `static/src/css/`.
+
 11.0.8
 ======
 - Fixed HTML entity display issue in teaser templates by adding |raw filter to article and event teasers

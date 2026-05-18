@@ -1,0 +1,27 @@
+/* Variables */
+@import "core/variables";
+
+/* Core styles */
+@import "core/bootstrap-grid-helpers";
+@import "core/base";
+@import "core/typography";
+@import "core/layout";
+@import "core/placeholder-selectors";
+@import "core/vendor";
+@import "core/forms";
+
+/* Components */
+@import "components/button";
+@import "components/button-set";
+@import "components/divider";
+@import "components/embed";
+@import "components/image";
+@import "components/subnav";
+@import "components/table";
+
+/* Pages */
+@import "pages/article-detail";
+@import "pages/profile-detail";
+
+/* Overrides for UMD DIT design system */
+@import "umd_dit_overrides/umd_dit_overrides";

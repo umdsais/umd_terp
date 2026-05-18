@@ -42,9 +42,10 @@
 	{% endif %}
 	{% if content.field_umdt_ct_hero_cta.0 %}
 		{% set link = content.field_umdt_ct_hero_cta.0 %}
+		{% set target = link['#url'].getOption('attributes')['target'] ?? '_self' %}
 		<div slot="actions">
 			<umd-element-call-to-action slot="actions" data-display="primary" data-visual-size="" data-theme="{{ brightness }}">
-				<a href="{{ link['#url'] }}" target="{{ link['#options'].attributes.target|default('_self') }}">
+				<a href="{{ link['#url'] }}" target="{{ target }}">
 					{{ link['#title'] }}
 				</a>
 			</umd-element-call-to-action>

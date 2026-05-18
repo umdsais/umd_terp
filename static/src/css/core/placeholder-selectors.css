@@ -1,0 +1,104 @@
+.btn-red {
+  border-color: var(--color-red);
+  color: var(--color-red);
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-red);
+    border-color: var(--color-red);
+    color: var(--color-white);
+  }
+}
+
+.btn-yellow {
+  border-color: var(--color-yellow);
+  color: var(--color-black);
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-yellow);
+    border-color: var(--color-yellow);
+    color: var(--color-black);
+  }
+}
+
+.form-label {
+  color: var(--color-red);
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.625;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.form-text-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-300);
+  border-radius: 0;
+  font-size: 16px;
+  line-height: 1.625;
+  padding: 14px 20px 13px;
+  width: 100%;
+
+  &::placeholder {
+    color: var(--color-gray-500);
+    opacity: 1;
+  }
+}
+
+.form-select {
+  background-image: url("../../img/Dropdown_Chevron.svg");
+  background-position: right 16px center;
+  background-repeat: no-repeat;
+  background-size: 19px 10px;
+  padding-right: 56px;
+}
+
+.link {
+  border-bottom: 1px solid transparent;
+  color: var(--color-red);
+  transition: 0.25s border-color ease-in-out;
+
+  &:hover {
+    border-bottom-color: var(--color-red);
+  }
+}
+
+.fancy-link {
+  border-bottom: 1px solid transparent;
+  color: var(--color-red);
+  font-weight: 700;
+  margin-right: 36px;
+  position: relative;
+  transition:
+    0.25s border-color ease-in-out,
+    0.25s color ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid var(--color-dark-red);
+    color: var(--color-dark-red);
+
+    &:after {
+      opacity: 1;
+      transform: translate(4px, -50%);
+    }
+  }
+
+  &:after {
+    content: "\e901";
+    display: inline-block;
+    font-size: 4px;
+    opacity: 0;
+    bottom: 6px;
+    position: absolute;
+    transform: translate(0, -50%);
+    transition:
+      0.25s opacity ease-in-out,
+      0.25s transform ease-in-out;
+  }
+}

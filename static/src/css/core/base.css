@@ -1,0 +1,128 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.chevron {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  fill: currentColor;
+  transition: color 0.2s;
+}
+
+.chevron--left {
+  transform: scaleX(-1);
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-red);
+  transition: 0.25s color ease-in-out;
+  &:hover {
+    color: var(--color-dark-red);
+  }
+}
+
+hr {
+  border-bottom: 1px solid #ededed;
+  border-top: 0;
+  margin: 16px 0 8px;
+}
+
+figure {
+  margin: 0 0 16px;
+}
+
+.align-right,
+.align-left,
+.align-center {
+  margin-bottom: 24px;
+  @media (width < 799px) {
+    margin-top: 24px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+.align-right,
+.align-left {
+  @media (width >= 800px) {
+    max-width: 50%;
+  }
+}
+.align-right {
+  @media (width < 799px) {
+    float: none;
+  }
+  @media (width >= 800px) {
+    float: right;
+    margin-left: 30px;
+  }
+}
+.align-left {
+  @media (width < 799px) {
+    float: none;
+  }
+  @media (width >= 800px) {
+    float: left;
+    margin-right: 30px;
+  }
+}
+
+img.align-left,
+img.align-right,
+img.align-center {
+  display: block;
+  height: auto;
+}
+
+.editor-content figure,
+figure.align-left,
+figure.align-right,
+figure.align-center {
+  display: table;
+  @media (width < 799px) {
+    max-width: 100%;
+  }
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+  figcaption {
+    caption-side: bottom;
+    display: table-caption;
+  }
+}
+
+figure.align-center {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 100%;
+  img {
+    margin: 0 auto;
+  }
+}
+
+figcaption {
+  color: #404245;
+  font-size: 14px;
+  line-height: 1.64285714;
+  margin-top: 8px;
+}

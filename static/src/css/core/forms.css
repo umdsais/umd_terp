@@ -1,0 +1,132 @@
+.views-exposed-form {
+  border-bottom: 1px solid var(--color-gray-200);
+  margin-bottom: 40px;
+  padding-bottom: 16px;
+  @media (width >= 800px) {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @media (width >= 1000px) {
+    flex-wrap: nowrap;
+    margin-bottom: 50px;
+    padding-bottom: 18px;
+  }
+  .form-item {
+    @media (width >= 800px) {
+      flex-grow: 0;
+      flex-shrink: 1;
+      margin: 0 24px 24px 0;
+      width: calc(50% - 12px);
+    }
+    @media (width >= 1000px) {
+      flex: 1 1 0px;
+      margin: 0 35px 32px 0;
+    }
+    &:nth-child(even) {
+      @media (width >= 800px) {
+        margin-right: 0;
+      }
+      @media (width >= 1000px) {
+        margin-right: 35px;
+      }
+    }
+  }
+  .form-text,
+  .form-select,
+  .button {
+    height: 57px;
+  }
+  .form-actions {
+    flex: 0;
+  }
+}
+
+.form-item,
+.form-actions {
+  margin: 0 0 24px;
+  @media (width >= 1000px) {
+    margin: 0 0 32px;
+  }
+}
+
+.form-item {
+  label {
+    @extend .form-label;
+  }
+}
+
+.form-text,
+.form-select,
+.form-textarea {
+  @extend .form-text-input;
+  .form-item-search & {
+    background-image: url("../../img/Search_Input_Icon.png");
+    background-position: right 20px center;
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    padding-right: 48px;
+  }
+}
+.form-select {
+  padding-right: 25px;
+  background: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
+
+.login {
+  &.login__cas {
+    h2 {
+      color: var(--color-red);
+    }
+
+    border: 2px solid var(--color-gray-300);
+    padding: 30px;
+  }
+
+  &.login__drupal {
+    padding-top: 30px;
+
+    @media (width >= 800px) {
+      padding-left: 30px;
+      padding-top: 0px;
+    }
+
+    .form-item label {
+      color: #000;
+      font-size: 0.8rem;
+      line-height: 1;
+    }
+
+    .form-actions {
+      margin-bottom: 0px;
+
+      .btn-secondary {
+        border: 1px solid var(--color-gray-300);
+      }
+    }
+  }
+}
+
+ul.select2-selection__rendered {
+  &:empty {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  white-space: initial;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}

@@ -9,6 +9,22 @@ use Drupal\node\Entity\Node;
 use Drupal\Core\Cache\CacheableMetadata;
 
 /**
+ * Helper to render a menu tree by menu ID into a render array.
+ */
+function _umd_terp_render_menu($menu_id) {
+  $menu_tree = \Drupal::service('menu.link_tree');
+  $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_id);
+  $parameters->setMaxDepth(1);
+  $tree = $menu_tree->load($menu_id, $parameters);
+  $manipulators = [
+    ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+    ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+  ];
+  $tree = $menu_tree->transform($tree, $manipulators);
+  return $menu_tree->build($tree);
+}
+
+/**
  * Make all theme settings available to insert in pages/nodes/etc.
  *
  * Added to pages by default in hook_preproccess_node above.
@@ -25,10 +41,6 @@ function _umd_terp_extend_theme_variables(&$variables) {
   if (!empty($logo_path)) {
     $variables['logo_path'] = \Drupal::service('file_url_generator')->generateString(\Drupal::service('file_url_generator')->generateAbsoluteString($logo_path));
   }
-  $footer_logo = theme_get_setting('umd_terp_footer_logo_path');
-  if (!empty($footer_logo)) {
-    $variables['footer_logo_path'] = \Drupal::service('file_url_generator')->generateString(\Drupal::service('file_url_generator')->generateAbsoluteString($footer_logo));
-  }
 
   $theme_settings = \Drupal::config($variables['theme_name'] . '.settings');
   CacheableMetadata::createFromRenderArray($variables)
@@ -38,6 +50,19 @@ function _umd_terp_extend_theme_variables(&$variables) {
   // Add full assets_path.
   if (!empty($variables['umd_terp_assets_path'])) {
     $variables['assets_path'] = $variables['theme_path'] . $variables['umd_terp_assets_path'];
+  }
+
+  // Render mega footer menus when the mega footer type is active.
+  if (!empty($variables['umd_terp_footer_type']) && $variables['umd_terp_footer_type'] === 'mega') {
+    $variables['mega_footer_menu_one'] = _umd_terp_render_menu('footer-mega-menu-column-one');
+    $variables['mega_footer_menu_two'] = _umd_terp_render_menu('footer-mega-menu-column-two');
+    $variables['mega_footer_menu_three'] = _umd_terp_render_menu('footer-mega-menu-column-three');
+  }
+
+  // Render utility menu links for the header if the menu exists and has items.
+  $utility_menu = \Drupal::entityTypeManager()->getStorage('menu')->load('utility-menu');
+  if ($utility_menu) {
+    $variables['utility_menu_links'] = _umd_terp_render_menu('utility-menu');
   }
 }
 

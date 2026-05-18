@@ -7,6 +7,7 @@
 #}
 
 {# Begin UMD Brand Footer #}
+{% if umd_terp_footer_type == 'simple' or not umd_terp_footer_type %}
   <umd-element-footer theme="dark" style="display: block;">
     <div slot="contact-headline">
       {{ site_name }}
@@ -49,7 +50,7 @@
 			href="{{ umd_terp_twitter_link }}"
 			rel="noopener noreferrer"
 			target="_blank"
-			aria-label="Visit is on X"
+			aria-label="Visit us on X"
 		></a>
 		{% endif %}
 	
@@ -70,6 +71,118 @@
 			aria-label="Visit our LinkedIn"
 		></a>
 		{% endif %}
+		{% if umd_terp_threads_link %}
+			<a
+			href="{{ umd_terp_threads_link }}"
+			rel="noopener noreferrer"
+			target="_blank"
+			aria-label="Visit our Threads"
+		></a>
+		{% endif %}
     </div>
   </umd-element-footer>
+{% elseif umd_terp_footer_type == 'mega' %}
+	{# Begin Mega Footer #}
+	<umd-element-footer type="mega" data-theme="dark" role="contentinfo" aria-label="site footer">
+
+		<div slot="contact-headline">
+			{{ site_name }}
+		</div>
+
+		{% if umd_terp_address %}
+			<address slot="contact-address">
+				<span>{{ umd_terp_address }}</span>
+			</address>
+		{% endif %}
+
+		<div slot="contact-links">
+			{% if umd_terp_email %}
+				<a href="mailto:{{ umd_terp_email }}">{{ umd_terp_email }}</a>
+			{% endif %}
+			{% if umd_terp_phone %}
+				<a href="tel:+{{ umd_terp_phone|preg_replace('/[^0-9]/', '') }}">{{ umd_terp_phone }}</a>
+			{% endif %}
+		</div>
+
+		<div slot="social-links">
+			{% if umd_terp_youtube_link %}
+				<a
+					href="{{ umd_terp_youtube_link }}"
+					rel="noopener noreferrer"
+					target="_blank"
+					aria-label="Visit our Youtube"
+				></a>
+			{% endif %}
+			{% if umd_terp_facebook_link %}
+				<a
+					href="{{ umd_terp_facebook_link }}"
+					rel="noopener noreferrer"
+					target="_blank"
+					aria-label="Visit our Facebook"
+				></a>
+			{% endif %}
+			{% if umd_terp_twitter_link %}
+				<a
+					href="{{ umd_terp_twitter_link }}"
+					rel="noopener noreferrer"
+					target="_blank"
+					aria-label="Visit us on X"
+				></a>
+			{% endif %}
+			{% if umd_terp_instagram_link %}
+				<a
+					href="{{ umd_terp_instagram_link }}"
+					rel="noopener noreferrer"
+					target="_blank"
+					aria-label="Visit our Instagram"
+				></a>
+			{% endif %}
+			{% if umd_terp_linkedin_link %}
+				<a
+					href="{{ umd_terp_linkedin_link }}"
+					rel="noopener noreferrer"
+					target="_blank"
+					aria-label="Visit our LinkedIn"
+				></a>
+			{% endif %}
+			{% if umd_terp_threads_link %}
+				<a
+					href="{{ umd_terp_threads_link }}"
+					rel="noopener noreferrer"
+					target="_blank"
+					aria-label="Visit our Threads"
+				></a>
+			{% endif %}
+		</div>
+
+		<ul slot="link-column-one" data-headline="{{ umd_terp_mega_footer_column_one_heading ?: 'Important Links' }}">
+			{% if mega_footer_menu_one['#items'] is not empty %}
+				{% for item in mega_footer_menu_one['#items'] %}
+					{% set target = item.url.getOption('attributes')['target'] ?? '_self' %}
+					<li><a href="{{ item.url }}" target="{{ target }}">{{ item.title }}</a></li>
+				{% endfor %}
+			{% endif %}
+		</ul>
+
+		<ul slot="link-column-two" data-headline="{{ umd_terp_mega_footer_column_two_heading ?: 'Information for' }}">
+			{% if mega_footer_menu_two['#items'] is not empty %}
+				{% for item in mega_footer_menu_two['#items'] %}
+					{% set target = item.url.getOption('attributes')['target'] ?? '_self' %}
+					<li><a href="{{ item.url }}" target="{{ target }}">{{ item.title }}</a></li>
+				{% endfor %}
+			{% endif %}
+		</ul>
+
+		<ul slot="link-column-three" data-headline="{{ umd_terp_mega_footer_column_three_heading ?: 'Academics' }}">
+			{% if mega_footer_menu_three['#items'] is not empty %}
+				{% for item in mega_footer_menu_three['#items'] %}
+					{% set target = item.url.getOption('attributes')['target'] ?? '_self' %}
+					<li><a href="{{ item.url }}" target="{{ target }}">{{ item.title }}</a></li>
+				{% endfor %}
+			{% endif %}
+		</ul>
+
+	</umd-element-footer>
+	{# End Mega Footer #}
+{% endif %}
 {# End Footer #}

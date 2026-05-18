@@ -18,5 +18,21 @@
 		{% endif %}
 	</a>
 	{{ drupal_menu('main', 1, 2, TRUE) }}
+	
+	{% if utility_menu_links is defined and utility_menu_links['#items'] is not empty %}
+		<div slot="utility-navigation">
+			{% for item in utility_menu_links['#items'] %}
+				{% set target = item.url.getOption('attributes')['target'] ?? '_self' %}
+				<a href="{{ item.url }}" target="{{ target }}">{{ item.title }}</a>
+			{% endfor %}
+		</div>
+		<div slot="primary-slide-content">
+			{% for item in utility_menu_links['#items'] %}
+				{% set target = item.url.getOption('attributes')['target'] ?? '_self' %}
+				<a href="{{ item.url }}" target="{{ target }}">{{ item.title }}</a>
+			{% endfor %}
+		</div>
+	{% endif %}
+
 </umd-element-navigation-header>
 {# End UMD Brand Site Header #}
