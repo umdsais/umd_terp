@@ -1,3 +1,7 @@
+11.1.2
+======
+- Extended FOUC-prevention CSS rules to cover `umd-element-hero-minimal` in addition to `umd-element-hero`.
+
 11.1.1
 ======
 - Basic page hero refactored into three include-based styles: `background` (`umd-element-hero` with standard layout), `overlay` (`umd-element-hero` with overlay layout), and `minimal` (`umd-element-hero-minimal`). Controlled via `field_umdt_ct_page_hero_style`; legacy fallback auto-detects style from presence of hero image.

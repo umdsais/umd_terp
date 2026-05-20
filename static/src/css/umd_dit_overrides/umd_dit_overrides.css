@@ -122,13 +122,15 @@ umd-element-breadcrumb {
 }
 
 /* partial fixes to reduce FOUC of hero image. */
-umd-element-hero:not(:defined) {
+umd-element-hero:not(:defined),
+umd-element-hero-minimal:not(:defined) {
   min-height: 0px;
   display: block;
   opacity: 0;
 }
 
-umd-element-hero:defined {
+umd-element-hero:defined,
+umd-element-hero-minimal:defined {
   container-type: inline-size;
   display: block;
   opacity: 1;
