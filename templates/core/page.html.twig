@@ -11,15 +11,12 @@
 
 <main id="main-content">
 	{% block hero %}
-		{% if hero_image %}
-			<umd-element-hero type="default-interior">
-				<img slot="image" src="{{ hero_image }}" alt="{{ hero_alt }}"/>
-				<h1 slot="headline">{{ node.label }}</h1>
-			</umd-element-hero>
+		{% if hero_style == 'background' %}
+			{% include directory ~ '/templates/_includes/hero/hero--background.html.twig' %}
+		{% elseif hero_style == 'overlay' %}
+			{% include directory ~ '/templates/_includes/hero/hero--overlay.html.twig' %}
 		{% else %}
-			<umd-element-hero-minimal data-theme="light">
-				<h1 slot="headline">{{ node.label }}</h1>
-			</umd-element-hero-minimal>
+			{% include directory ~ '/templates/_includes/hero/hero--minimal.html.twig' %}
 		{% endif %}
 	{% endblock %}
 	{% block main %}

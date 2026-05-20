@@ -33,6 +33,12 @@ function umd_terp_preprocess_html(&$variables) {
 function umd_terp_preprocess_page(&$variables) {
   $variables['hero_image'] = '';
   $variables['hero_alt'] = '';
+  $variables['hero_style'] = '';
+  $variables['hero_eyebrow'] = '';
+  $variables['hero_text'] = '';
+  $variables['hero_cta_url'] = '';
+  $variables['hero_cta_title'] = '';
+  $variables['hero_cta_target'] = '_self';
   $variables['hero_title'] = $variables['page']['#title'];
 
   // Make any custom theme settings available in the page tpl.
@@ -54,6 +60,36 @@ function umd_terp_preprocess_page(&$variables) {
     switch ($node->getType()) {
       case 'umd_terp_basic_page':
         $variables['hide_sidebar'] = $node->get('field_umdt_ct_hide_sidebar')->value;
+
+        // Hero style selector.
+        if ($node->hasField('field_umdt_ct_page_hero_style') && !$node->get('field_umdt_ct_page_hero_style')->isEmpty()) {
+          $variables['hero_style'] = $node->get('field_umdt_ct_page_hero_style')->value;
+        }
+        else {
+          // Legacy fallback: image → background, no image → minimal.
+          $variables['hero_style'] = $variables['hero_image'] ? 'background' : 'minimal';
+        }
+
+        // Hero eyebrow text.
+        if ($node->hasField('field_umdt_ct_hero_subtitle') && !$node->get('field_umdt_ct_hero_subtitle')->isEmpty()) {
+          $variables['hero_eyebrow'] = $node->get('field_umdt_ct_hero_subtitle')->value;
+        }
+
+        // Hero body text.
+        if ($node->hasField('field_umdt_ct_hero_text') && !$node->get('field_umdt_ct_hero_text')->isEmpty()) {
+          $variables['hero_text'] = $node->get('field_umdt_ct_hero_text')->value;
+        }
+
+        // Hero CTA link.
+        if ($node->hasField('field_umdt_ct_hero_cta') && !$node->get('field_umdt_ct_hero_cta')->isEmpty()) {
+          $cta = $node->get('field_umdt_ct_hero_cta')->first();
+          $url = $cta->getUrl();
+          $variables['hero_cta_url'] = $url->toString();
+          $variables['hero_cta_title'] = $cta->title;
+          $options = $url->getOptions();
+          $variables['hero_cta_target'] = $options['attributes']['target'] ?? '_self';
+        }
+
         break;
     }
   }

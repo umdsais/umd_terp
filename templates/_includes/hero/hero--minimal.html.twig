@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Hero minimal style for UMD Terp basic pages.
+ *
+ * Available variables:
+ *   - hero_image: Optional URL of the hero image.
+ *   - hero_alt: Alt text for the hero image.
+ *   - hero_eyebrow: Optional eyebrow text.
+ *   - hero_text: Optional body text.
+ *   - hero_cta_url: Optional CTA link URL.
+ *   - hero_cta_title: Optional CTA link text.
+ *   - hero_cta_target: CTA link target attribute.
+ *   - node: The node entity.
+ */
+#}
+
+<umd-element-hero-minimal data-theme="light">
+  {% if hero_image %}
+    <img slot="image" src="{{ hero_image }}" alt="{{ hero_alt }}"/>
+  {% endif %}
+  {% if hero_eyebrow %}
+    <p slot="eyebrow">{{ hero_eyebrow }}</p>
+  {% endif %}
+  <h1 slot="headline">{{ node.label }}</h1>
+  {% if hero_text %}
+    <div slot="text">
+      <p>{{ hero_text }}</p>
+    </div>
+  {% endif %}
+  {% if hero_cta_url %}
+    <div slot="actions">
+      <umd-element-call-to-action data-display="primary" data-visual-size="" data-theme="light">
+        <a href="{{ hero_cta_url }}" target="{{ hero_cta_target }}">{{ hero_cta_title }}</a>
+      </umd-element-call-to-action>
+    </div>
+  {% endif %}
+</umd-element-hero-minimal>

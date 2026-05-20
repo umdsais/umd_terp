@@ -31,7 +31,6 @@
   margin-bottom: 12px;
   padding-bottom: 4px;
   position: relative;
-  text-transform: uppercase;
   &:after {
     content: "";
     background-color: var(--color-gray-300);
