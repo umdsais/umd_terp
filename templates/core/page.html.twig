@@ -7,16 +7,16 @@
   ]
 %}
 
-{% include directory ~ '/templates/_includes/global/header.html.twig' %}
+{% include [directory ~ '/templates/_includes/global/header.html.twig', '@umd_terp/_includes/global/header.html.twig'] %}
 
 <main id="main-content">
 	{% block hero %}
 		{% if hero_style == 'background' %}
-			{% include directory ~ '/templates/_includes/hero/hero--background.html.twig' %}
+			{% include [directory ~ '/templates/_includes/hero/hero--background.html.twig', '@umd_terp/_includes/hero/hero--background.html.twig'] %}
 		{% elseif hero_style == 'overlay' %}
-			{% include directory ~ '/templates/_includes/hero/hero--overlay.html.twig' %}
+			{% include [directory ~ '/templates/_includes/hero/hero--overlay.html.twig', '@umd_terp/_includes/hero/hero--overlay.html.twig'] %}
 		{% else %}
-			{% include directory ~ '/templates/_includes/hero/hero--minimal.html.twig' %}
+			{% include [directory ~ '/templates/_includes/hero/hero--minimal.html.twig', '@umd_terp/_includes/hero/hero--minimal.html.twig'] %}
 		{% endif %}
 	{% endblock %}
 	{% block main %}
@@ -40,4 +40,4 @@
 	{% endblock %}
 </main>
 
-{% include directory ~ '/templates/_includes/global/footer.html.twig' %}
+{% include [directory ~ '/templates/_includes/global/footer.html.twig', '@umd_terp/_includes/global/footer.html.twig'] %}

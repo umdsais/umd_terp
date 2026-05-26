@@ -1,3 +1,8 @@
+11.1.3
+======
+- Updated `page.html.twig` and `page--user--login.html.twig` include directives to use Twig array syntax with `@umd_terp` namespace fallback, enabling subtheme template overrides for header, footer, and hero partials.
+- Updated `display=` attribute to `data-display=` on `umd-element-card`, `umd-element-event`, and `umd-element-person` teaser templates to align with current web components API.
+
 11.1.2
 ======
 - Extended FOUC-prevention CSS rules to cover `umd-element-hero-minimal` in addition to `umd-element-hero`.

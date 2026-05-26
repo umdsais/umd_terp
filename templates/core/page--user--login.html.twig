@@ -1,5 +1,5 @@
 
-{% include directory ~ '/templates/_includes/global/header.html.twig' %}
+{% include [directory ~ '/templates/_includes/global/header.html.twig', '@umd_terp/_includes/global/header.html.twig'] %}
 
 <main id="main-content">
 	{% block hero %}
@@ -29,4 +29,4 @@
 	{% endblock %}
 </main>
 
-{% include directory ~ '/templates/_includes/global/footer.html.twig' %}
+{% include [directory ~ '/templates/_includes/global/footer.html.twig', '@umd_terp/_includes/global/footer.html.twig'] %}
