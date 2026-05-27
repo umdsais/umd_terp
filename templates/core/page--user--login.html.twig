@@ -5,7 +5,7 @@
 	{% block hero %}
 		{% if hero_image %}
 			<umd-element-hero type="default-interior">
-				<img slot="image" src="{{ hero_image }}" alt="{{ hero_alt }}"/>
+				<img slot="image" src="{{ hero_image }}" alt="{{ hero_alt }}"{% if hero_width and hero_height %} width="{{ hero_width }}" height="{{ hero_height }}"{% endif %} loading="eager" fetchpriority="high" decoding="async"/>
 				<h1 slot="headline">UMD Login</h1>
 			</umd-element-hero>
 		{% else %}

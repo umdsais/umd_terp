@@ -33,6 +33,8 @@ function umd_terp_preprocess_html(&$variables) {
 function umd_terp_preprocess_page(&$variables) {
   $variables['hero_image'] = '';
   $variables['hero_alt'] = '';
+  $variables['hero_width'] = '';
+  $variables['hero_height'] = '';
   $variables['hero_style'] = '';
   $variables['hero_eyebrow'] = '';
   $variables['hero_text'] = '';
@@ -47,12 +49,17 @@ function umd_terp_preprocess_page(&$variables) {
   if ($node = _umd_terp_get_node_by_route()) {
     // Set hero details.
     if ($node->hasField('field_umdt_ct_hero_image') && $node->get('field_umdt_ct_hero_image')->entity) {
-      $hero_uri = $node->get('field_umdt_ct_hero_image')->entity->get('field_media_image')->entity->getFileUri();
-      $hero_alt = $node->get('field_umdt_ct_hero_image')->entity->get('field_media_image')->alt;
+      $hero_image_field = $node->get('field_umdt_ct_hero_image')->entity->get('field_media_image');
+      $hero_uri = $hero_image_field->entity->getFileUri();
+      $hero_alt = $hero_image_field->alt;
+      $hero_width = $hero_image_field->width;
+      $hero_height = $hero_image_field->height;
 
       if (!empty($hero_uri) && !empty($hero_alt)) {
         $variables['hero_image'] = ImageStyle::load('optimized')->buildUrl($hero_uri);
         $variables['hero_alt'] = $hero_alt;
+        $variables['hero_width'] = $hero_width;
+        $variables['hero_height'] = $hero_height;
       }
 
     }

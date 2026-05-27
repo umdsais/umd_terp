@@ -1,3 +1,11 @@
+11.1.6
+======
+- Updated article, event, homepage, and shared hero/header rendering to use UMDDL-prefixed image styles and improved image attributes.
+- Added explicit width/height and loading/decoding attributes across updated templates for improved rendering stability and performance.
+- All changes are present in both the Lando webroot and the source repo.
+- Person profile image template edits were intentionally removed from this release pass.
+- Caches rebuilt and validated after changes.
+
 11.1.5
 ======
 - Fixed `subnav.ts` null pointer crash when the current page is not in the subnav menu; initializers in `index.ts` are now wrapped in try/catch to prevent one failure from blocking others.

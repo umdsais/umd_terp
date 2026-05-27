@@ -36,10 +36,21 @@ function _umd_terp_extend_theme_variables(&$variables) {
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
   $variables['theme_name'] = \Drupal::theme()->getActiveTheme()->getName();
   $variables['site_slogan'] = \Drupal::config('system.site')->get('slogan');
+  $variables['logo_width'] = '';
+  $variables['logo_height'] = '';
   $variables['theme_path'] = \Drupal::service('file_url_generator')->generateString(\Drupal::service('file_url_generator')->generateAbsoluteString(\Drupal::service('extension.list.theme')->getPath($variables['theme_name'])));
   $logo_path = theme_get_setting('logo.url');
   if (!empty($logo_path)) {
     $variables['logo_path'] = \Drupal::service('file_url_generator')->generateString(\Drupal::service('file_url_generator')->generateAbsoluteString($logo_path));
+
+    $logo_realpath = \Drupal::service('file_system')->realpath($logo_path);
+    if (!empty($logo_realpath) && is_file($logo_realpath)) {
+      $logo_size = @getimagesize($logo_realpath);
+      if (!empty($logo_size[0]) && !empty($logo_size[1])) {
+        $variables['logo_width'] = $logo_size[0];
+        $variables['logo_height'] = $logo_size[1];
+      }
+    }
   }
 
   $theme_settings = \Drupal::config($variables['theme_name'] . '.settings');

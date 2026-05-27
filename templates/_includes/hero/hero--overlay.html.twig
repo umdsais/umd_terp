@@ -17,7 +17,7 @@
 
 <umd-element-hero data-display="overlay" data-theme="light">
   {% if hero_image %}
-    <img slot="image" src="{{ hero_image }}" alt="{{ hero_alt }}"/>
+    <img slot="image" src="{{ hero_image }}" alt="{{ hero_alt }}"{% if hero_width and hero_height %} width="{{ hero_width }}" height="{{ hero_height }}"{% endif %} loading="eager" fetchpriority="high" decoding="async"/>
   {% endif %}
   {% if hero_eyebrow %}
     <p slot="eyebrow">{{ hero_eyebrow }}</p>
