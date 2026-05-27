@@ -8,9 +8,9 @@ import Tablesaw from "../components/table/table";
 import initSubnav from "../components/subnav/subnav";
 
 document.addEventListener("DOMContentLoaded", () => {
-  initializeBundle();
-  initSubnav();
-  Tablesaw.init();
+  try { initializeBundle(); } catch (e) { console.error('initializeBundle error:', e); }
+  try { initSubnav(); } catch (e) { console.error('initSubnav error:', e); }
+  try { Tablesaw.init(); } catch (e) { console.error('Tablesaw error:', e); }
 
   async function createStyleSheet() {
     try {
@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } catch (error) {
       console.error("error " + error);
-      throw error;
     }
   }
 

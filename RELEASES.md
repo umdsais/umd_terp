@@ -1,3 +1,14 @@
+11.1.5
+======
+- Fixed `subnav.ts` null pointer crash when the current page is not in the subnav menu; initializers in `index.ts` are now wrapped in try/catch to prevent one failure from blocking others.
+- Removed `print.css` reference from `umd_terp.libraries.yml` (file was empty and caused 404s).
+- Replaced `umd-text-rich-advanced` class with `editor-content` in `node--umd-terp-person.html.twig` to prevent web-styles-library from overriding paragraph text color to grey (`#454545`).
+
+11.1.4
+======
+- Updated `page.html.twig` and `page--user--login.html.twig` include directives to use Twig array syntax with `@umd_terp` namespace fallback, enabling subtheme template overrides for header, footer, and hero partials.
+- Updated `display=` attribute to `data-display=` on `umd-element-card`, `umd-element-event`, and `umd-element-person` teaser templates to align with current web components API.
+
 11.1.3
 ======
 - Updated `page.html.twig` and `page--user--login.html.twig` include directives to use Twig array syntax with `@umd_terp` namespace fallback, enabling subtheme template overrides for header, footer, and hero partials.

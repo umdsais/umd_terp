@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
-    outDir: "../../../../../web/themes/custom/umd_terp/static/build",
+    outDir: "./build",
     emptyOutDir: true,
 
     rollupOptions: {

@@ -6,7 +6,8 @@ export class Subnav {
   constructor(element: HTMLElement) {
     if (element) {
       this.element = element;
-      this.links = element.querySelector('a[aria-current="page"]').nextElementSibling ? element.querySelector('a[aria-current="page"]').nextElementSibling.querySelectorAll('a') : null;
+      const currentLink = element.querySelector('a[aria-current="page"]');
+      this.links = currentLink && currentLink.nextElementSibling ? currentLink.nextElementSibling.querySelectorAll('a') : null;
       this.init();
     }
   }
