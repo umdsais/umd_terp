@@ -1,3 +1,7 @@
+11.1.9
+======
+- Reverted `web-components.min.css` import added in 11.1.8; the `content-visibility: hidden` pre-styling is designed for deferred component loading and caused severe FCP/LCP regression (performance score 35 → 15) with our single-bundle approach. CLS improvement was outweighed by blank-page penalty during the 2.6s JS execution window.
+
 11.1.8
 ======
 - Added `web-components.min.css` from `@universityofmaryland/web-styles-library` to the CSS bundle; provides `content-visibility: hidden` / `contain-intrinsic-size` pre-styling for all UMD custom elements via `:not(:defined)`, reducing CLS from web component upgrades.
