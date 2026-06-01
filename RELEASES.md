@@ -1,3 +1,8 @@
+11.1.8
+======
+- Added `web-components.min.css` from `@universityofmaryland/web-styles-library` to the CSS bundle; provides `content-visibility: hidden` / `contain-intrinsic-size` pre-styling for all UMD custom elements via `:not(:defined)`, reducing CLS from web component upgrades.
+- Reordered CSS imports so `web-components.min.css` loads first (component defaults before theme overrides) and theme `index.css` loads last.
+
 11.1.7
 ======
 - Converted Google Fonts loading from render-blocking `rel="stylesheet"` to async `preload`/`print`/`onload` pattern with `<noscript>` fallback; added proper `preconnect` hints for `fonts.googleapis.com` and `fonts.gstatic.com`; upgraded to Fonts API v2.
