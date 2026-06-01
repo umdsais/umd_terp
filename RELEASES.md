@@ -1,3 +1,13 @@
+11.1.7
+======
+- Converted Google Fonts loading from render-blocking `rel="stylesheet"` to async `preload`/`print`/`onload` pattern with `<noscript>` fallback; added proper `preconnect` hints for `fonts.googleapis.com` and `fonts.gstatic.com`; upgraded to Fonts API v2.
+- Consolidated serif font from Crimson Text to Crimson Pro (already bundled by UMD web components library); trimmed Source Sans Pro variants from 11 to 6; updated `--font-family-serif` CSS custom property.
+- Removed `Styles.postRenderCss` JS injection; UMD CSS files (`accessibility`, `animation`, `element`, `layout`, `typography`) now imported directly in `index.ts` and bundled by Vite, eliminating FOUC and reducing Total Blocking Time.
+- Replaced jQuery and Tablesaw with a native TypeScript implementation for responsive table stacking (`[data-tablesaw-mode="stack"]`).
+- Removed unused dependencies from `package.json`: `jquery`, `tablesaw`, `silc-core`, `@universityofmaryland/web-elements-library`.
+- Added `esbuild` as devDependency; set `cssMinify: "esbuild"` in Vite config for compatibility with UMD animation CSS in Vite 8.
+- Rebuilt CSS and JS bundles.
+
 11.1.6
 ======
 - Updated article, event, homepage, and shared hero/header rendering to use UMDDL-prefixed image styles and improved image attributes.

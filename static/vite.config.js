@@ -4,6 +4,7 @@ export default defineConfig({
   build: {
     outDir: "./build",
     emptyOutDir: true,
+    cssMinify: "esbuild",
 
     rollupOptions: {
       input: "src/js/index.ts",

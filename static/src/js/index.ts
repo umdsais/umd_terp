@@ -2,28 +2,20 @@
 // @ts-ignore
 import "../css/index.css";
 
+// UMD design system styles - imported as CSS so they load with the stylesheet
+// rather than being injected via JS after DOMContentLoaded (reduces TBT/FOUC)
+import "@universityofmaryland/web-styles-library/css/accessibility.min.css";
+import "@universityofmaryland/web-styles-library/css/animation.min.css";
+import "@universityofmaryland/web-styles-library/css/element.min.css";
+import "@universityofmaryland/web-styles-library/css/layout.min.css";
+import "@universityofmaryland/web-styles-library/css/typography.min.css";
+
 import { initializeBundle } from "@universityofmaryland/web-components-library/bundle";
-import * as Styles from "@universityofmaryland/web-styles-library";
-import Tablesaw from "../components/table/table";
 import initSubnav from "../components/subnav/subnav";
+import initTableStack from "../components/table/table";
 
 document.addEventListener("DOMContentLoaded", () => {
   try { initializeBundle(); } catch (e) { console.error('initializeBundle error:', e); }
   try { initSubnav(); } catch (e) { console.error('initSubnav error:', e); }
-  try { Tablesaw.init(); } catch (e) { console.error('Tablesaw error:', e); }
-
-  async function createStyleSheet() {
-    try {
-      // Styles to load after the body - classes for layout and elements
-      Styles.postRenderCss.then((css) => {
-        const styleSheet = document.createElement("style");
-        styleSheet.innerHTML = `${css}`;
-        document.head.appendChild(styleSheet);
-      });
-    } catch (error) {
-      console.error("error " + error);
-    }
-  }
-
-  createStyleSheet();
+  try { initTableStack(); } catch (e) { console.error('initTableStack error:', e); }
 });

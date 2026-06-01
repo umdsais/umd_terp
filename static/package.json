@@ -17,6 +17,7 @@
   "devDependencies": {
     "@types/node": "^25.8.0",
     "autoprefixer": "^10.4.20",
+    "esbuild": "^0.28.0",
     "postcss-extend-rule": "^4.0.0",
     "postcss-preset-env": "^11.3.0",
     "postcss-pxtorem": "^6.1.0",
@@ -35,10 +36,6 @@
   ],
   "dependencies": {
     "@universityofmaryland/web-components-library": "^1.18.9",
-    "@universityofmaryland/web-elements-library": "^1.6.13",
-    "@universityofmaryland/web-styles-library": "^1.8.10",
-    "jquery": "^3.7.1",
-    "silc-core": "^0.6.0",
-    "tablesaw": "^3.1.2"
+    "@universityofmaryland/web-styles-library": "^1.8.10"
   }
 }
