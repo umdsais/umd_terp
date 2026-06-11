@@ -35,7 +35,9 @@
     "not IE 11"
   ],
   "dependencies": {
-    "@universityofmaryland/web-components-library": "^1.18.9",
-    "@universityofmaryland/web-styles-library": "^1.8.10"
+    "@universityofmaryland/web-components-library": "^1.18.12",
+    "@universityofmaryland/web-elements-library": "^1.6.17",
+    "@universityofmaryland/web-styles-library": "^1.8.13",
+    "@universityofmaryland/web-token-library": "^1.0.2"
   }
 }

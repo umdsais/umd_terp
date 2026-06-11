@@ -1,3 +1,10 @@
+11.1.10
+=======
+- Updated `@universityofmaryland/web-components-library` from 1.18.9 → 1.18.12
+- Updated `@universityofmaryland/web-elements-library` from 1.6.16 → 1.6.17
+- Updated `@universityofmaryland/web-styles-library` from 1.8.10 → 1.8.13
+- Updated `@universityofmaryland/web-token-library` from 1.0.1 → 1.0.2
+
 11.1.9
 ======
 - Reverted `web-components.min.css` import added in 11.1.8; the `content-visibility: hidden` pre-styling is designed for deferred component loading and caused severe FCP/LCP regression (performance score 35 → 15) with our single-bundle approach. CLS improvement was outweighed by blank-page penalty during the 2.6s JS execution window.
