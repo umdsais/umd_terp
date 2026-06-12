@@ -18,6 +18,6 @@
   --color-gray-1000: #181818;
 
   /* Typography */
-  --font-family-sans-serif: "Source Sans Pro", sans-serif;
-  --font-family-serif: "Crimson Pro", serif;
+  --font-family-sans-serif: "Interstate", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-serif: "Crimson Pro", Georgia, serif;
 }

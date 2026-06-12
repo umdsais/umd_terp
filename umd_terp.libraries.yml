@@ -1,7 +1,10 @@
 global:
-  version: 11.1.0
+  version: 11.1.11
   css:
     base:
+      "https://use.typekit.net/sqo8mue.css": { type: external, minified: true }
+      "https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap":
+        { type: external, minified: true }
       static/build/css/index.css:
         { minified: true, preprocess: false, media: screen }
   js:

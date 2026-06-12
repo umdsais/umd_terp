@@ -1,3 +1,10 @@
+11.1.11
+=======
+- Updated theme font loading in `umd_terp.libraries.yml` to include Adobe Typekit (`https://use.typekit.net/sqo8mue.css`) and Google Fonts Crimson Pro.
+- Updated local typography tokens to Interstate (`--font-family-sans-serif`) and Crimson Pro (`--font-family-serif`), and removed the local campaign font token.
+- Removed local `font-weight: 600` usage from typography styles to align local heading weights with available Interstate usage.
+- Rebuilt frontend assets.
+
 11.1.10
 =======
 - Updated `@universityofmaryland/web-components-library` from 1.18.9 → 1.18.12
