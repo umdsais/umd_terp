@@ -7,7 +7,7 @@
 
 <umd-element-person class="umd-shell-person-grid-helper" data-theme="light" data-display="block">
 
-	{% set photo = assets_path ~ '/img/Profiles_Photo_Placeholder.svg' %}
+	{% set photo = assets_path ~ '/static/src/img/Profiles_Photo_Placeholder.svg' %}
 	{% if content.field_umdt_ct_person_photo|field_value %}
 		{% set photo = file_url(content.field_umdt_ct_person_photo|field_target_entity.uri.value | image_style('optimized')) %}
 	{% endif %}
