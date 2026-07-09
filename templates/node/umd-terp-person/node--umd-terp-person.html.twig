@@ -11,7 +11,7 @@
       <div class="col-1000-11">
         <umd-element-person-bio data-theme="light">
 
-          {% set photo = assets_path ~ '/static/src/img/Profiles_Photo_Placeholder.svg' %}
+          {% set photo = theme_path ~ '/static/src/img/Profiles_Photo_Placeholder.svg' %}
           {% if content.field_umdt_ct_person_photo|field_value %}
             {% set photo = file_url(content.field_umdt_ct_person_photo|field_target_entity.uri.value | image_style('optimized')) %}
           {% endif %}
