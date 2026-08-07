@@ -5,26 +5,40 @@
  */
 #}
 
-<umd-element-event data-display="list" data-theme="" show-time="false">
-	{% if content.field_umdt_ct_event_image|field_value %}
+<umd-element-event data-display="list" data-theme="" data-visual-time="false">
+  {% if content.field_umdt_ct_event_image|field_value %}
 		<a slot="image" href="{{ link }}">
 			<img src="{{ file_url(content.field_umdt_ct_event_image[0]['#media'].field_media_image.entity.uri.value | image_style('UMDDL_image')) }}" alt="{{ content.field_umdt_ct_event_image[0]['#media'].field_media_image.alt }}" loading="lazy" decoding="async"/>
 		</a>
 	{% endif %}
 
-	<h2 slot="headline">{{ node.title.value }}</h2>
+  <h2 slot="headline">{{ node.title.value }}</h2>
 
-	{% set teaser_text = node.body.summary|trim ?: node.body.processed|striptags|replace({'&nbsp;': ' ', '  ': ' '})|trim %}
-	{% if teaser_text %}
-		<div slot="text">
-			{{ teaser_text|slice(0, 300) }}{% if teaser_text|length > 300 %}...{% endif %}
-		</div>
-	{% endif %}
+  {% set event_time = node.field_umdt_ct_event_time.value|trim %}
+  {% set teaser_text = node.body.summary|trim
+    ?: node.body.processed|striptags|replace({'&nbsp;': ' ', '  ': ' '})|trim
+  %}
 
-	<div slot="start-date-iso">
-		{{ node.field_umdt_ct_event_start_date.value|date('F j, Y') }}</div>
+  {# Put the Time field into the metadata area #}
+  {% if teaser_text %}
+    <div slot="text">
+      {{ teaser_text|slice(0, 300) }}{% if teaser_text|length > 300 %}...{% endif %}
+    </div>
+  {% endif %}
 
-	<div slot="end-date-iso">{{ node.field_umdt_ct_event_end_date.value|date('F j, Y') }}</div>
+  {% if event_time %}
+    <span slot="location">
+      Time: {{ event_time }}
+    </span>
+  {% endif %}
+
+  <div slot="start-date-iso">
+    {{ node.field_umdt_ct_event_start_date.value }}T12:00:00
+  </div>
+
+  <div slot="end-date-iso">
+    {{ node.field_umdt_ct_event_end_date.value }}T12:00:00
+  </div>
 
 	<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="light">
 		<a href="{{ link }}">
@@ -34,3 +48,6 @@
 		</a>
 	</umd-element-call-to-action>
 </umd-element-event>
+
+
+
