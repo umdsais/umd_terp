@@ -7,10 +7,10 @@
 
 <umd-element-event data-display="list" data-theme="" data-visual-time="false">
   {% if content.field_umdt_ct_event_image|field_value %}
-		<a slot="image" href="{{ link }}">
-			<img src="{{ file_url(content.field_umdt_ct_event_image[0]['#media'].field_media_image.entity.uri.value | image_style('UMDDL_image')) }}" alt="{{ content.field_umdt_ct_event_image[0]['#media'].field_media_image.alt }}" loading="lazy" decoding="async"/>
-		</a>
-	{% endif %}
+    <a slot="image" href="{{ link }}">
+      <img src="{{ file_url(content.field_umdt_ct_event_image[0]['#media'].field_media_image.entity.uri.value | image_style('UMDDL_image')) }}" alt="{{ content.field_umdt_ct_event_image[0]['#media'].field_media_image.alt }}" loading="lazy" decoding="async"/>
+    </a>
+  {% endif %}
 
   <h2 slot="headline">{{ node.title.value }}</h2>
 
@@ -19,17 +19,27 @@
     ?: node.body.processed|striptags|replace({'&nbsp;': ' ', '  ': ' '})|trim
   %}
 
-  {# Put the Time field into the metadata area #}
-  {% if teaser_text %}
+  {% if teaser_text or event_time %}
     <div slot="text">
-      {{ teaser_text|slice(0, 300) }}{% if teaser_text|length > 300 %}...{% endif %}
-    </div>
-  {% endif %}
 
-  {% if event_time %}
-    <span slot="location">
-      Time: {{ event_time }}
-    </span>
+      {% if event_time %}
+        <p class="umd-event-time">
+          <span class="umd-event-time__icon-wrapper">
+            {% include '@umd_terp/icons/umd-icon-clock.html.twig' %}
+          </span>
+          <span class="umd-event-time__text">
+            {{ event_time }}
+          </span>
+        </p>
+      {% endif %}
+
+      {% if teaser_text %}
+        <p class="umd-event-summary">
+          {{ teaser_text|slice(0, 300) }}{% if teaser_text|length > 300 %}...{% endif %}
+        </p>
+      {% endif %}
+
+    </div>
   {% endif %}
 
   <div slot="start-date-iso">
@@ -40,14 +50,11 @@
     {{ node.field_umdt_ct_event_end_date.value }}T12:00:00
   </div>
 
-	<umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="light">
-		<a href="{{ link }}">
-			View Event<span class="sr-only">
-				Details for
-				{{ node.title.value }}</span>
-		</a>
-	</umd-element-call-to-action>
+  <umd-element-call-to-action slot="actions" data-display="secondary" data-visual-size="" data-theme="light">
+    <a href="{{ link }}">
+      View Event<span class="sr-only">
+        Details for
+        {{ node.title.value }}</span>
+    </a>
+  </umd-element-call-to-action>
 </umd-element-event>
-
-
-

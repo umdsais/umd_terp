@@ -171,3 +171,19 @@ umd-element-navigation-header {
     }
   }
 }
+
+/*time styling for Events page, possibly remove when Events time is reworked*/
+.umd-event-time {
+  display: inline-flex;
+  align-items: center;
+}
+
+.umd-event-time__icon-wrapper {
+  margin-right: 0.5rem;
+}
+
+.umd-event-time-icon {
+  width: 1rem;
+  height: 1rem;
+  transform: translateY(2px);
+}
