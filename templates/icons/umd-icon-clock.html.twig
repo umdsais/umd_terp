@@ -5,6 +5,14 @@
  * Decorative because the adjacent text supplies the event time.
  */
 #}
+{#
+  translateY(2px) is intentional.
+
+  The event time markup is rendered inside the
+  umd-element-event shadow root. Theme CSS does not
+  reliably reach the injected content, so final icon
+  alignment is handled directly on the SVG.
+#}
 <svg
   class="umd-event-time-icon"
   viewBox="0 0 17 17"
@@ -13,6 +21,7 @@
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
   aria-hidden="true"
+  style="transform: translateY(2px);"
   focusable="false"
 >
   <path
