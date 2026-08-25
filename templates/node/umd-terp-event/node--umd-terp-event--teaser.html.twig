@@ -14,9 +14,9 @@
 
   <h2 slot="headline">{{ node.title.value }}</h2>
 
-  {% set event_time = node.field_umdt_ct_event_time.value|trim %}
-  {% set teaser_text = node.body.summary|trim
-    ?: node.body.processed|striptags|replace({'&nbsp;': ' ', '  ': ' '})|trim
+  {% set event_time = node.field_umdt_ct_event_time.value|default('')|trim %}
+  {% set teaser_text = node.body.summary|default('')|trim
+    ?: node.body.processed|default('')|striptags|replace({'&nbsp;': ' ', '  ': ' '})|trim
   %}
 
   {% if teaser_text or event_time %}

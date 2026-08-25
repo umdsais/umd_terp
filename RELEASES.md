@@ -1,3 +1,7 @@
+11.1.18
+=======
+- Fix PHP 8.4 TypeError: `trim()` on null body summary and event time values in article and event teaser templates. Added `|default('')` before `|trim` to handle nodes with no summary or event time.
+
 11.1.17
 =======
 - Added `umd_terp_articles_path` as an editable theme setting in the **Content Settings** fieldset of the theme settings form. Previously schema-defined but not exposed in the UI. Defaults to `/articles`.
