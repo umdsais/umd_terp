@@ -1,3 +1,31 @@
+11.1.17
+=======
+- Added `umd_terp_articles_path` as an editable theme setting in the **Content Settings** fieldset of the theme settings form. Previously schema-defined but not exposed in the UI. Defaults to `/articles`.
+
+11.1.16
+=======
+- Refined event teaser time icon alignment: added `transform: translateY(2px)` directly on the `umd-icon-clock` SVG to correct vertical positioning within the `umd-element-event` shadow root where theme CSS cannot reliably reach injected slot content.
+- Rebuilt CSS bundle.
+
+11.1.15
+=======
+- Added `templates/icons/umd-icon-clock.html.twig`: inline SVG clock icon (decorative, `aria-hidden`) used in event teaser time display.
+- Refactored `node--umd-terp-event--teaser.html.twig` to render event time alongside a clock icon in the metadata area, replacing the previous `show-time` approach.
+- Added event time CSS overrides to `umd_dit_overrides.css`.
+- Rebuilt CSS bundle.
+
+11.1.14
+=======
+- Updated `node--umd-terp-event--teaser.html.twig`: replaced deprecated `show-time="false"` attribute with `data-visual-time="false"` on `umd-element-event` to align with current web components API; moved event time field into the metadata slot for correct display.
+
+11.1.13
+=======
+- Fixed person placeholder image path in `node--umd-terp-person.html.twig` and `node--umd-terp-person--teaser.html.twig` (follow-up to 11.1.12).
+
+11.1.12
+=======
+- Fixed person placeholder image path in `node--umd-terp-person.html.twig` and `node--umd-terp-person--teaser.html.twig`: updated path from `assets_path ~ '/img/...'` to `assets_path ~ '/static/src/img/...'`.
+
 11.1.11
 =======
 - Updated theme font loading in `umd_terp.libraries.yml` to include Adobe Typekit (`https://use.typekit.net/sqo8mue.css`) and Google Fonts Crimson Pro.

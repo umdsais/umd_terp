@@ -138,6 +138,19 @@ function umd_terp_form_system_theme_settings_alter(&$form, FormStateInterface $f
     '#description' => t('Add the URL to your Threads profile.'),
   ];
 
+  // Content paths.
+  $form['umd_terp_content_settings'] = [
+    '#type' => 'details',
+    '#title' => t('UMD Terp Content Settings'),
+  ];
+
+  $form['umd_terp_content_settings']['umd_terp_articles_path'] = [
+    '#type' => 'textfield',
+    '#title' => t('Articles listing path'),
+    '#default_value' => $theme_settings_provider->getSetting('umd_terp_articles_path') ?: '/articles',
+    '#description' => t('The path to the articles/news listing page. Category links on article nodes will point here. Example: <code>/news</code> or <code>/articles</code>.'),
+  ];
+
   // Other.
   $form['other'] = [
     '#type' => 'details',
