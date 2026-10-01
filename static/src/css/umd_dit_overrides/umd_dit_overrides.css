@@ -117,6 +117,21 @@ umd-element-pathway {
   flex-wrap: wrap;
 }
 
+.pager__item {
+  a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: 0.3s text-decoration-color ease-in-out;
+    &[aria-current="page"] {
+      color: var(--color-dark-red);
+      pointer-events: none;
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
 /* Divider, putting a clear both so it doesn't go through images */
 .divider.divider {
   clear: both;
