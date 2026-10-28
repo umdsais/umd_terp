@@ -1,0 +1,38 @@
+diff --git a/node_modules/@universityofmaryland/web-components-library/dist/bundle.js b/node_modules/@universityofmaryland/web-components-library/dist/bundle.js
+index 1bfb33c..fe641d7 100644
+--- a/node_modules/@universityofmaryland/web-components-library/dist/bundle.js
++++ b/node_modules/@universityofmaryland/web-components-library/dist/bundle.js
+@@ -36480,7 +36480,14 @@ const oS = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+     (c) => c.cloneNode(!0)
+   ), s = n.map(
+     (c) => c.cloneNode(!0)
+-  ), r = e.map((c) => c.nodeName === "IMG" && Kn(c) ? c.cloneNode(!0) : null).filter((c) => c !== null);
++  ), r = e.map((c) => {
++  if (c.nodeName !== "IMG" || !Kn(c)) return null;
++
++  const image = c.cloneNode(!0);
++  image.loading = "eager";
++
++  return image;
++}).filter((c) => c !== null);
+   return Jp({
+     images: r,
+     headlines: i,
+@@ -36503,8 +36510,15 @@ const oS = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+   (A) => A.events?.SetEventReize()
+ ), KR = (A) => {
+   const t = Array.from(
+-    A.querySelectorAll(`[slot="${U.name.IMAGES}"] > *`)
+-  ).map((n) => n.nodeName === "IMG" && Kn(n) ? n.cloneNode(!0) : null).filter((n) => n !== null);
++  A.querySelectorAll(`[slot="${U.name.IMAGES}"] > *`)
++).map((n) => {
++  if (n.nodeName !== "IMG" || !Kn(n)) return null;
++
++  const r = n.cloneNode(!0);
++  r.loading = "eager";
++
++  return r;
++}).filter((n) => n !== null);
+   return jp({
+     images: t,
+     isThemeDark: aA.dark({ element: A }),

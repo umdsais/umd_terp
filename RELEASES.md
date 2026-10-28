@@ -1,3 +1,12 @@
+# 11.1.20
+
+- Fixed Firefox and Safari initialization issues affecting UMD Design System image carousels and slideshows, where images could render stacked, remain hidden, or fail to initialize correctly after a hard refresh.
+- Added a temporary patch for @universityofmaryland/web-components-library@2.0.0 that forces cloned carousel and slideshow images to load eagerly. This resolves the initialization issue while leaving the original Drupal image markup unchanged.
+- Added patch-package with a postinstall step so the temporary UMD Design System patch is automatically reapplied after npm install or npm ci.
+- Rebuilt the JavaScript bundle.
+- Verified carousel/slideshow loading and navigation in Firefox, Safari, and Chrome.
+
+
 # 11.1.19
 
 - Custom pagination style update for current page indication

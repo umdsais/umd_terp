@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "vite --open",
     "watch": "vite build --watch",
-    "build": "vite build"
+    "build": "vite build",
+    "postinstall": "patch-package"
   },
   "author": {
     "name": "idfive",
@@ -18,6 +19,7 @@
     "@types/node": "^25.8.0",
     "autoprefixer": "^10.4.20",
     "esbuild": "^0.28.0",
+    "patch-package": "^8.0.1",
     "postcss-extend-rule": "^4.0.0",
     "postcss-preset-env": "^11.3.0",
     "postcss-pxtorem": "^6.1.0",
