@@ -1,3 +1,6 @@
+#11.1.22
+- Fixed the hamburger navigation menu for sites with a flat main navigation structure. The menu now displays correctly when no top-level navigation items have child links.
+
 # 11.1.21
 - Added support for centering Button Set paragraphs on the UMD Terp Homepage content type.
 - Updated the homepage sections field template to apply the centered Button Set class when the Paragraph's centering option is enabled.

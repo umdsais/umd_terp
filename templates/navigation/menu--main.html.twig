@@ -75,8 +75,16 @@
 		</div>
 	{% endif %}
 
+		{# Check whether any top-level menu item has children #}
+	{% set has_children = false %}
+	{% for item in items %}
+		{% if item.below %}
+			{% set has_children = true %}
+		{% endif %}
+	{% endfor %}
+
 	{# Children Slots for sidenav #}
-	{% if items %}
+	{% if items and has_children %}
 		<div slot="children-slides">
 			{% for item in items %}
 				{% if item.below %}
@@ -87,20 +95,20 @@
 				{% if item.below %}
 					{% if parent %}
 						<div data-parent-ref="slide-{{ parent }}">
-						{% else %}
-							<div>
-							{% endif %}
-							{% for item in item.below %}
-								{% set child_target_attr = item.url.getOption('attributes')['target'] ?? '' %}
-								<a href="{{ item.url }}"{% if child_target_attr %} target="{{ child_target_attr }}"{% endif %}>
-									<span>{{ item.title }}</span>
-								</a>
-							{% endfor %}
-						</div>
+					{% else %}
+						<div>
 					{% endif %}
-				{% endfor %}
-			</div>
-		{% endif %}
+						{% for item in item.below %}
+							{% set child_target_attr = item.url.getOption('attributes')['target'] ?? '' %}
+							<a href="{{ item.url }}"{% if child_target_attr %} target="{{ child_target_attr }}"{% endif %}>
+								<span>{{ item.title }}</span>
+							</a>
+						{% endfor %}
+						</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	{% endif %}
 
 
 	{% endmacro %}
