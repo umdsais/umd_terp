@@ -1,3 +1,8 @@
+# 11.1.21
+- Added support for centering Button Set paragraphs on the UMD Terp Homepage content type.
+- Updated the homepage sections field template to apply the centered Button Set class when the Paragraph's centering option is enabled.
+- Updated UMD DIT override styles to center Button Sets on both Basic Page and Homepage content types.
+
 # 11.1.20
 
 - Fixed Firefox and Safari initialization issues affecting UMD Design System image carousels and slideshows, where images could render stacked, remain hidden, or fail to initialize correctly after a hard refresh.

@@ -38,12 +38,18 @@
 #}
 {% for item in items %}
   {%
+    set para_type = item.content['#paragraph'].getType()
+  %}
+  {%
     set classes = [
       'page-section',
       'page-section-' ~ element['#bundle'],
-      'page-section-' ~ item.content['#paragraph'].getType()
+      'page-section-' ~ para_type
     ]
   %}
+  {% if para_type == 'ut_button_set' and item.content['#paragraph'].field_ut_button_center.value %}
+    {% set classes = classes|merge(['page-section-ut_button_set--centered']) %}
+  {% endif %}
   <div class="{{ classes|join(' ') }}">
     <div class="max-bound">
       <div class="outer-pad">

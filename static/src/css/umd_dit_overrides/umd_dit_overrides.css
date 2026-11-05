@@ -45,11 +45,14 @@ umd-element-breadcrumb {
   }
 }
 
-.section-ut_button_set--centered {
+/* button centering */
+.section-ut_button_set--centered,
+.page-section-ut_button_set--centered {
   div:has(> umd-element-call-to-action) {
     justify-content: center;
   }
 }
+
 
 /*  Carousel */
 .section-ut_carousel {
